@@ -37,12 +37,12 @@ app.use(express.static(__dirname + '/resources'));
       res.render("index", {'username': 'Julius Momnang', 'year': 2017, 'month': 'JUNE'});
     });
 
-    app.get('/profile', function(req, res){
-      res.render("profile", {'fruits': ['apple','orange','banana','peach','passion']});
-    });
-
     app.get('/invoices', function(req, res){
       res.render("data-table", {'username': 'Julius Momnang', 'year': 2017, 'month': 'JUNE'});
+    });
+
+    app.get('/profile', function(req, res){
+      res.render("profile", {'fruits': ['apple','orange','banana','peach','passion']});
     });
 
     app.get('/fontawesome', function(req, res){
