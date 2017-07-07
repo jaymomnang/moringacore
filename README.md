@@ -1,2 +1,2 @@
-# apene
-Apene Accounting
+# moringacore
+An MVP for Moringa School Nairobi
