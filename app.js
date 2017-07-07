@@ -34,6 +34,10 @@ app.use(express.static(__dirname + '/resources'));
     }
 
     app.get('/', function(req, res){
+      res.render("login", {'username': 'Julius Momnang', 'year': 2017, 'month': 'JUNE'});
+    });
+
+    app.get('/home', function(req, res){
       res.render("index", {'username': 'Julius Momnang', 'year': 2017, 'month': 'JUNE'});
     });
 
@@ -80,7 +84,7 @@ app.use(express.static(__dirname + '/resources'));
 
   app.use(errorHandler);
 
-    var server = app.listen(3000, function() {
+    var server = app.listen(3200, function() {
         var port = server.address().port;
         console.log('Express server listening on port %s.', port);
     });
