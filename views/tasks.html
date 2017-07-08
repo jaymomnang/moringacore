@@ -138,68 +138,16 @@
                       </ul>
                   </li>
                   <li class="nav-small-cap m-t-10">--- Quick Menu</li>
-                  <li> <a href="/" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard </span></a></li>
-                  <li><a href="javascript:void(0);" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Invoices<span class="fa arrow"></span></span></a>
-                      <ul class="nav nav-second-level">
-                          <li> <a href="Invoice">New Invoice</a></li>
-                          <li> <a href="Invoices">View Invoices</a></li>
-                          <li> <a href="InvoiceItems">Invoice Items</a></li>
-                          <li> <a href="UnpaidInv">Unpaid Invoices</a></li>
-                          <li> <a href="Debtors">Debtors List</a></li>
-                      </ul>
-                  </li>
-                  <li><a href="javascript:void(0);" class="waves-effect"><i class="ti-receipt p-r-10"></i> <span class="hide-menu">Receipts<span class="fa arrow"></span></span></a>
-                      <ul class="nav nav-second-level">
-                          <li> <a href="Receipt">New Receipt</a></li>
-                          <li> <a href="Receipts">View Receipts</a></li>
-                          <li> <a href="Debtors">Debtors List</a></li>
-                      </ul>
-                  </li>
-                  <li><a href="javascript:void(0);" class="waves-effect"><i data-icon="&#xe00a;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Expenditures<span class="fa arrow"></span></span></a>
-                      <ul class="nav nav-second-level">
-                          <li> <a href="Expense">New Expenditure</a></li>
-                          <li> <a href="Expenses">View Expenditures</a></li>
-                          <li> <a href="CA">Cash Advance</a></li>
-                          <li> <a href="Retire">Retirements</a></li>
-                      </ul>
-                  </li>
-                  <li><a href="javascript:void(0);" class="waves-effect"><i data-icon="?" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Projects<span class="fa arrow"></span></span></a>
-                      <ul class="nav nav-second-level">
-                          <li> <a href="Project">New Project</a></li>
-                          <li> <a href="Projects">View Projects</a></li>
-                          <li> <a href="PendingProjs">Pending Projects</a></li>
-                          <li> <a href="CompletedProjs">Completed Projects</a></li>
-                      </ul>
-                  </li>
-                  <li class="nav-small-cap">--- Accounting</li>
-                  <li> <a href="javascript:void(0);" class="waves-effect"><i class="ti-files p-r-10"></i> <span class="hide-menu"> Journal Entries<span class="fa arrow"></span></span></a>
-                      <ul class="nav nav-second-level">
-                          <li> <a href="Journal">New Entry</a> </li>
-                          <li> <a href="Journals">View Entries</a> </li>
-                      </ul>
-                  </li>
-                  <li> <a href="javascript:void(0);" class="waves-effect"><i class="ti-archive p-r-10"></i> <span class="hide-menu"> CashBook<span class="fa arrow"></span></span></a>
-                      <ul class="nav nav-second-level">
-                          <li> <a href="CBE">New Entry</a> </li>
-                          <li> <a href="CBEntries">View Entries</a> </li>
-                          <li> <a href="Banks">Banks</a> </li>
-                      </ul>
-                  </li>
-                  <li> <a href="javascript:void(0);" class="waves-effect"><i class="icon-folder-alt p-r-10"></i> <span class="hide-menu"> Budgets<span class="fa arrow"></span></span></a>
-                      <ul class="nav nav-second-level">
-                          <li> <a href="Budget">New Budget</a> </li>
-                          <li> <a href="Budgets">View Budgets</a> </li>
-                      </ul>
-                  </li>
-                  <li class="nav-small-cap">--- Reporting</li>
-                  <li> <a href="BalSheet" class="waves-effect"><i class="ti-pie-chart p-r-10"></i> <span class="hide-menu"> Balance Sheet</span></span></a></li>
-                  <li> <a href="PL" class="waves-effect"><i class="ti-stats-up p-r-10"></i> <span class="hide-menu"> Profit & Loss</span></a></li>
-                  <li> <a href="CashFlow" class="waves-effect"><i class="ti-bar-chart p-r-10"></i> <span class="hide-menu"> CashFlow</span></a></li>
-                  <li> <a href="ChangeInEquity" class="waves-effect"><i class="ti-briefcase p-r-10"></i> <span class="hide-menu"> Change In Equity</span></a></li>
-                  <li> <a href="TrialBal" class="waves-effect"><i class="ti-list p-r-10"></i> <span class="hide-menu"> Trial Balance</span></a></li>
-                  <li> <a href="Settings" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Settings</span></a> </li>
-                  <li> <a href="Login" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
-
+                  <li><a href="tasks" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">{{tasks_label}}</span></a></li>
+                  <li><a href="courses" class="waves-effect"><i data-icon="&#xe00a;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{courses_label}}</span></a></li>
+                  <li><a href="home" class="waves-effect"><i data-icon="C" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{performance_label}}</span></a></li>
+                  <li><a href="submissions" class="waves-effect"><i data-icon="?" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{submissions_label}}</span></a></li>
+                  <li class="nav-small-cap">--- Administration</li>
+                  <li><a href="manage_usr" class="waves-effect"><i class="fa fa-users fa-fw"></i> <span class="hide-menu"> {{manage_usr_label}}</span></a></li>
+                  <li><a href="attendance" class="waves-effect"><i class="fa fa-calendar fa-fw"></i> <span class="hide-menu"> {{attendance_label}}</span></a></li>
+                  <li><a href="reports" class="waves-effect"><i class="fa fa-bar-chart-o fa-fw"></i> <span class="hide-menu"> {{reports_label}}</span></a></li>
+                  <li class="nav-small-cap"></li>
+                  <li><a href="/" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu"> Log Out</span></a></li>
               </ul>
           </div>
       </div>
@@ -210,7 +158,7 @@
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">User Tasks </h4> </div>
-                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <ol class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li class="active">Tasks</li>

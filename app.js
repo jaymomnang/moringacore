@@ -33,28 +33,50 @@ app.use(express.static(__dirname + '/resources'));
 
     }
 
+    var monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
+                      "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
+
+    var d = new Date();
+    var y = d.getFullYear();
+    var m = monthNames[d.getMonth()];
+
+    var arr = {
+      'username': 'Julius Momnang',
+      'year': y,
+      'month': m,
+      'tasks_label': 'My Tasks',
+      'courses_label':'My Courses',
+      'performance_label': 'My Performance',
+      'attendance_label': 'Attendance',
+      'submissions_label': 'My Submissions',
+      'manage_usr_label': 'Manage User',
+      'reports_label':'Reports'
+    };
+
+
+
     app.get('/', function(req, res){
-      res.render("login", {'username': 'Julius Momnang', 'year': 2017, 'month': 'JUNE'});
+      res.render("login", arr);
     });
 
     app.get('/home', function(req, res){
-      res.render("index", {'username': 'Julius Momnang', 'year': 2017, 'month': 'JUNE'});
+      res.render("index", arr);
     });
 
     app.get('/invoices', function(req, res){
-      res.render("invoice", {'username': 'Julius Momnang', 'year': 2017, 'month': 'JUNE'});
+      res.render("invoice", arr);
     });
 
     app.get('/tasks', function(req, res){
-      res.render("tasks", {'fruits': ['apple','orange','banana','peach','passion']});
+      res.render("tasks", arr);
     });
 
     app.get('/fontawesome', function(req, res){
       res.render("fontawesome", {'fruits': ['apple','orange','banana','peach','passion']});
     });
 
-    app.get('/basic-table', function(req, res){
-      res.render("basic-table", {'fruits': ['apple','orange','banana','peach','passion']});
+    app.get('/datatables', function(req, res){
+      res.render("data-table", arr);
     });
 
     app.get('/map-google', function(req, res){
