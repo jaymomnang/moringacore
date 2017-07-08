@@ -42,11 +42,11 @@ app.use(express.static(__dirname + '/resources'));
     });
 
     app.get('/invoices', function(req, res){
-      res.render("data-table", {'username': 'Julius Momnang', 'year': 2017, 'month': 'JUNE'});
+      res.render("invoice", {'username': 'Julius Momnang', 'year': 2017, 'month': 'JUNE'});
     });
 
-    app.get('/profile', function(req, res){
-      res.render("profile", {'fruits': ['apple','orange','banana','peach','passion']});
+    app.get('/tasks', function(req, res){
+      res.render("tasks", {'fruits': ['apple','orange','banana','peach','passion']});
     });
 
     app.get('/fontawesome', function(req, res){

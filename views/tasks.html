@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
+    <title>MoringaCore</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="css/animate.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+    <!-- Popup CSS -->
+    <link href="plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.min.css" rel="stylesheet">
+
+    <!-- color CSS -->
+    <link href="css/colors/green.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-sidebar">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+      <!-- Top Navigation -->
+      <nav class="navbar navbar-default navbar-static-top m-b-0">
+          <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+              <div class="top-left-part"><a class="logo" href="/"><b><img src="plugins/images/logo-white.png" alt="home" style="height: 55px !important; margin-left: 20px;"/></b></a></div>
+              <ul class="nav navbar-top-links navbar-left hidden-xs">
+                  <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
+                  <li>
+                      <form role="search" class="app-search hidden-xs">
+                          <input type="text" placeholder="Looking for.." class="form-control"> <a href=""><i class="fa fa-search"></i></a> </form>
+                  </li>
+              </ul>
+              <ul class="nav navbar-top-links navbar-right pull-right">
+                  <!-- /.dropdown -->
+                  <li class="dropdown"> <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"><i class="icon-note"></i>
+        <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+        </a>
+                      <ul class="dropdown-menu dropdown-tasks animated slideInUp">
+                          <li>
+                              <a href="#">
+                                  <div>
+                                      <p> <strong>Task 1</strong> <span class="pull-right text-muted">40% Complete</span> </p>
+                                      <div class="progress progress-striped active">
+                                          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>
+                                      </div>
+                                  </div>
+                              </a>
+                          </li>
+                          <li class="divider"></li>
+                          <li>
+                              <a href="#">
+                                  <div>
+                                      <p> <strong>Task 2</strong> <span class="pull-right text-muted">20% Complete</span> </p>
+                                      <div class="progress progress-striped active">
+                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"> <span class="sr-only">20% Complete</span> </div>
+                                      </div>
+                                  </div>
+                              </a>
+                          </li>
+                          <li class="divider"></li>
+                          <li>
+                              <a href="#">
+                                  <div>
+                                      <p> <strong>Task 3</strong> <span class="pull-right text-muted">60% Complete</span> </p>
+                                      <div class="progress progress-striped active">
+                                          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"> <span class="sr-only">60% Complete (warning)</span> </div>
+                                      </div>
+                                  </div>
+                              </a>
+                          </li>
+                          <li class="divider"></li>
+                          <li>
+                              <a href="#">
+                                  <div>
+                                      <p> <strong>Task 4</strong> <span class="pull-right text-muted">80% Complete</span> </p>
+                                      <div class="progress progress-striped active">
+                                          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"> <span class="sr-only">80% Complete (danger)</span> </div>
+                                      </div>
+                                  </div>
+                              </a>
+                          </li>
+                          <li class="divider"></li>
+                          <li>
+                              <a class="text-center" href="#"> <strong>See All Tasks</strong> <i class="fa fa-angle-right"></i> </a>
+                          </li>
+                      </ul>
+                      <!-- /.dropdown-tasks -->
+                  </li>
+                  <!-- /.dropdown -->
+
+                  <li class="right-side-toggle"> <a class="waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li>
+                  <!-- /.dropdown -->
+              </ul>
+          </div>
+          <!-- /.navbar-header -->
+          <!-- /.navbar-top-links -->
+          <!-- /.navbar-static-side -->
+      </nav>
+      <!-- End Top Navigation -->
+      <!-- Left navbar-header -->
+      <div class="navbar-default sidebar" role="navigation">
+          <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+              <ul class="nav" id="side-menu">
+                  <li class="sidebar-search hidden-sm hidden-md hidden-lg">
+                      <!-- input-group -->
+                      <div class="input-group custom-search-form">
+                          <input type="text" class="form-control" placeholder="Search...">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
+                          </span>
+                      </div>
+                      <!-- /input-group -->
+                  </li>
+                  <li class="user-pro">
+                      <a href="#" class="waves-effect"><img src="plugins/images/users/d1.jpg" alt="user-img" class="img-circle"> <span class="hide-menu">{{username}}<span class="fa arrow"></span></span>
+                      </a>
+                      <ul class="nav nav-second-level">
+                          <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>
+                          <li><a href="javascript:void(0)"><i class="ti-settings"></i> Preferences</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-small-cap m-t-10">--- Quick Menu</li>
+                  <li> <a href="/" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard </span></a></li>
+                  <li><a href="javascript:void(0);" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Invoices<span class="fa arrow"></span></span></a>
+                      <ul class="nav nav-second-level">
+                          <li> <a href="Invoice">New Invoice</a></li>
+                          <li> <a href="Invoices">View Invoices</a></li>
+                          <li> <a href="InvoiceItems">Invoice Items</a></li>
+                          <li> <a href="UnpaidInv">Unpaid Invoices</a></li>
+                          <li> <a href="Debtors">Debtors List</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="javascript:void(0);" class="waves-effect"><i class="ti-receipt p-r-10"></i> <span class="hide-menu">Receipts<span class="fa arrow"></span></span></a>
+                      <ul class="nav nav-second-level">
+                          <li> <a href="Receipt">New Receipt</a></li>
+                          <li> <a href="Receipts">View Receipts</a></li>
+                          <li> <a href="Debtors">Debtors List</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="javascript:void(0);" class="waves-effect"><i data-icon="&#xe00a;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Expenditures<span class="fa arrow"></span></span></a>
+                      <ul class="nav nav-second-level">
+                          <li> <a href="Expense">New Expenditure</a></li>
+                          <li> <a href="Expenses">View Expenditures</a></li>
+                          <li> <a href="CA">Cash Advance</a></li>
+                          <li> <a href="Retire">Retirements</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="javascript:void(0);" class="waves-effect"><i data-icon="?" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Projects<span class="fa arrow"></span></span></a>
+                      <ul class="nav nav-second-level">
+                          <li> <a href="Project">New Project</a></li>
+                          <li> <a href="Projects">View Projects</a></li>
+                          <li> <a href="PendingProjs">Pending Projects</a></li>
+                          <li> <a href="CompletedProjs">Completed Projects</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-small-cap">--- Accounting</li>
+                  <li> <a href="javascript:void(0);" class="waves-effect"><i class="ti-files p-r-10"></i> <span class="hide-menu"> Journal Entries<span class="fa arrow"></span></span></a>
+                      <ul class="nav nav-second-level">
+                          <li> <a href="Journal">New Entry</a> </li>
+                          <li> <a href="Journals">View Entries</a> </li>
+                      </ul>
+                  </li>
+                  <li> <a href="javascript:void(0);" class="waves-effect"><i class="ti-archive p-r-10"></i> <span class="hide-menu"> CashBook<span class="fa arrow"></span></span></a>
+                      <ul class="nav nav-second-level">
+                          <li> <a href="CBE">New Entry</a> </li>
+                          <li> <a href="CBEntries">View Entries</a> </li>
+                          <li> <a href="Banks">Banks</a> </li>
+                      </ul>
+                  </li>
+                  <li> <a href="javascript:void(0);" class="waves-effect"><i class="icon-folder-alt p-r-10"></i> <span class="hide-menu"> Budgets<span class="fa arrow"></span></span></a>
+                      <ul class="nav nav-second-level">
+                          <li> <a href="Budget">New Budget</a> </li>
+                          <li> <a href="Budgets">View Budgets</a> </li>
+                      </ul>
+                  </li>
+                  <li class="nav-small-cap">--- Reporting</li>
+                  <li> <a href="BalSheet" class="waves-effect"><i class="ti-pie-chart p-r-10"></i> <span class="hide-menu"> Balance Sheet</span></span></a></li>
+                  <li> <a href="PL" class="waves-effect"><i class="ti-stats-up p-r-10"></i> <span class="hide-menu"> Profit & Loss</span></a></li>
+                  <li> <a href="CashFlow" class="waves-effect"><i class="ti-bar-chart p-r-10"></i> <span class="hide-menu"> CashFlow</span></a></li>
+                  <li> <a href="ChangeInEquity" class="waves-effect"><i class="ti-briefcase p-r-10"></i> <span class="hide-menu"> Change In Equity</span></a></li>
+                  <li> <a href="TrialBal" class="waves-effect"><i class="ti-list p-r-10"></i> <span class="hide-menu"> Trial Balance</span></a></li>
+                  <li> <a href="Settings" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Settings</span></a> </li>
+                  <li> <a href="Login" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
+
+              </ul>
+          </div>
+      </div>
+      <!-- Left navbar-header end -->
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">User Tasks </h4> </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Buy Now</a>
+                        <ol class="breadcrumb">
+                            <li><a href="#">Dashboard</a></li>
+                            <li class="active">Tasks</li>
+                        </ol>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- .row -->
+                <div class="row el-element-overlay m-b-40">
+                    <div class="col-md-12">
+                        <h4>Fade-in effect <br/><small>You can use by default <code>el-overlay</code></small></h4>
+                        <hr>
+                    </div>
+                    <!-- /.usercard -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                    <!-- /.usercard -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/2.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/2.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                    <!-- /.usercard -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/3.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/3.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                    <!-- /.usercard -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/4.jpg" />
+                                    <div class="el-overlay">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/4.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                </div>
+                <!-- /.row -->
+                <!-- .row -->
+                <div class="row el-element-overlay m-b-40">
+                    <!-- /.usercard -->
+                    <div class="col-md-12">
+                        <h4>Scroll down effect <br/><small>You can use scroll down effect <code>el-overlay scrl-dwn</code></small></h4>
+                        <hr>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/5.jpg" />
+                                    <div class="el-overlay scrl-dwn">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/5.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                    <!-- /.usercard -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/6.jpg" />
+                                    <div class="el-overlay scrl-dwn">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/6.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                    <!-- /.usercard -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/7.jpg" />
+                                    <div class="el-overlay scrl-dwn">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/7.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                    <!-- /.usercard -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/8.jpg" />
+                                    <div class="el-overlay scrl-dwn">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/8.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                </div>
+                <!-- /.row -->
+                <!-- .row -->
+                <div class="row el-element-overlay">
+                    <!-- /.usercard -->
+                    <div class="col-md-12">
+                        <h4>Scroll up effect <br/><small>You can use scroll down effect <code>el-overlay scrl-up</code></small></h4>
+                        <hr>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                    <div class="el-overlay scrl-up">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                    <!-- /.usercard -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/2.jpg" />
+                                    <div class="el-overlay scrl-up">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/2.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                    <!-- /.usercard -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/3.jpg" />
+                                    <div class="el-overlay scrl-up">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/3.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                    <!-- /.usercard -->
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="white-box">
+                            <div class="el-card-item">
+                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/4.jpg" />
+                                    <div class="el-overlay scrl-up">
+                                        <ul class="el-info">
+                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/4.jpg"><i class="icon-magnifier"></i></a></li>
+                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="el-card-content">
+                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                    <br/> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.usercard-->
+                </div>
+                <!-- /.row -->
+                <!-- .right-sidebar -->
+                <div class="right-sidebar">
+                    <div class="slimscrollright">
+                        <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
+                        <div class="r-panel-body">
+                            <ul>
+                                <li><b>Layout Options</b></li>
+                                <li>
+                                    <div class="checkbox checkbox-info">
+                                        <input id="checkbox1" type="checkbox" class="fxhdr">
+                                        <label for="checkbox1"> Fix Header </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox checkbox-warning">
+                                        <input id="checkbox2" type="checkbox" checked="" class="fxsdr">
+                                        <label for="checkbox2"> Fix Sidebar </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox checkbox-success">
+                                        <input id="checkbox4" type="checkbox" class="open-close">
+                                        <label for="checkbox4"> Toggle Sidebar </label>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul id="themecolors" class="m-t-20">
+                                <li><b>With Light sidebar</b></li>
+                                <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
+                                <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
+                                <li><a href="javascript:void(0)" data-theme="gray" class="yellow-theme">3</a></li>
+                                <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme">4</a></li>
+                                <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
+                                <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme working">6</a></li>
+                                <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
+                                <br/>
+                                <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
+                                <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
+                                <li><a href="javascript:void(0)" data-theme="gray-dark" class="yellow-dark-theme">9</a></li>
+                                <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
+                                <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
+                                <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme">12</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.right-sidebar -->
+            </div>
+            <!-- /.container-fluid -->
+            <footer class="footer text-center"> 2017 &copy; MoringaCore </footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/dist/js/tether.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!-- Magnific popup JavaScript -->
+    <script src="plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+    <script src="plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!--Style Switcher -->
+    <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+</body>
+
+</html>
