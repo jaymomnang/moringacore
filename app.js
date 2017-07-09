@@ -13,12 +13,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/resources'));
 
 
-//MongoClient.connect('mongodb://localhost:27017/video', function(err, db) {
+MongoClient.connect('mongodb://localhost:27017/video', function(err, db) {
 
-//    assert.equal(null, err);
-//    console.log("Successfully connected to MongoDB.");
+    assert.equal(null, err);
+    console.log("Successfully connected to MongoDB.");
 
-//});
+});
 
 
     //Handler for internal server errors
