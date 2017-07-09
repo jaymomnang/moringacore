@@ -2,51 +2,51 @@
 
 var mongoose = require('mongoose'),
     //schema = mongoose.Schema,
-    invoice = mongoose.model('invoices');
+    login = mongoose.model('login');
 
 exports.get_preq = function(req, res) {
-  console.log(invoice);
-  invoice.find({}, function(err, invoices) {
-    console.log(invoices);
+  console.log(login);
+  login.find({}, function(err, login) {
+    console.log(login);
     if (err) return console.log(err);
-    console.log(invoices);
+    console.log(login);
   });
 };
 
-exports.create_an_invoice = function(req, res) {
-  var new_invoice = new invoice(req.body);
+//exports.create_an_invoice = function(req, res) {
+//  var new_invoice = new invoice(req.body);
 
-  new_invoice.save(function(err, new_invoice) {
-    if (err){
-      res.send(err);
-      res.json(new_invoice);
-    }
-      console.log(new_invoice);
-  });
-};
+//  new_invoice.save(function(err, new_invoice) {
+//    if (err){
+//      res.send(err);
+//      res.json(new_invoice);
+//    }
+//      console.log(new_invoice);
+//  });
+//};
 
-exports.get_an_invoice = function(req, res) {
-  invoice.findById(req.params.invoiceId, function(err, invoice) {
+exports.authenticate = function(req, res) {
+  login.findById(req.params.email, function(err, login) {
     if (err)
       res.send(err);
-    res.json(invoice);
+    res.json(login);
   });
 };
 
-exports.update_an_invoice = function(req, res) {
-  invoice.findOneAndUpdate({invoice_id: req.params.invoiceId}, req.body, {new: true}, function(err, invoice) {
+exports.updateLogin = function(req, res) {
+  login.findOneAndUpdate({userid: req.params.email}, req.body, {new: true}, function(err, login) {
     if (err)
       res.send(err);
-    res.json(invoice);
+    res.json(login);
   });
 };
 
-exports.delete_an_invoice = function(req, res) {
-  invoice.remove({
-    invoice_id: req.params.invoiceId
-  }, function(err, invoice) {
+exports.dactivateLogin = function(req, res) {
+  login.remove({
+    email: req.params.email
+  }, function(err, login) {
     if (err)
       res.send(err);
-    res.json({ message: 'Invoice successfully deleted' });
+    res.json({ message: 'user deactivated successfully' });
   });
 };

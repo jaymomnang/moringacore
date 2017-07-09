@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(app) {
-  var mc = require('../controllers/mcController');
+  var mc = require('../controllers/LoginController');
 
   // todoList Routes
   app.route('/')
@@ -8,7 +8,7 @@ module.exports = function(app) {
     .post(invoice.authenticate);
 
   app.route('/:UsrId')
-    .get(invoice.get_an_invoice)
-    .put(invoice.update_an_invoice)
-    .delete(invoice.delete_an_invoice);
+    .get(invoice.authenticate)
+    .put(invoice.updateLogin)
+    .delete(invoice.dactivateLogin);
 };
