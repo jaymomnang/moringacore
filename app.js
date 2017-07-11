@@ -73,8 +73,8 @@ MongoClient.connect('mongodb://localhost:27017/video', function(err, db) {
       res.render("tasks", arr);
     });
 
-    app.get('/fontawesome', function(req, res){
-      res.render("fontawesome", {'fruits': ['apple','orange','banana','peach','passion']});
+    app.get('/attendance', function(req, res){
+      res.render("attendance", arr);
     });
 
     app.get('/datatables', function(req, res){
