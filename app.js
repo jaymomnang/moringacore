@@ -53,7 +53,9 @@ MongoClient.connect('mongodb://localhost:27017/video', function(err, db) {
       'reports_label':'Reports'
     };
 
-
+    //var routes = require('./routes/LoginRoutes');
+    //var router = express.Router();
+    //app.use('/', router);
 
     app.get('/', function(req, res){
       res.render("login", arr);
@@ -79,8 +81,12 @@ MongoClient.connect('mongodb://localhost:27017/video', function(err, db) {
       res.render("data-table", arr);
     });
 
-    app.get('/map-google', function(req, res){
-      res.render("map-google", {'fruits': ['apple','orange','banana','peach','passion']});
+    app.get('/courses', function(req, res){
+      res.render("modals", arr);
+    });
+
+    app.get('/reports', function(req, res){
+      res.render("invoice", arr);
     });
 
     app.get('/404', function(req, res){
