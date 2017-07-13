@@ -3,28 +3,10 @@ var express = require('express'),
     engines = require('consolidate'),
     MongoClient = require('mongodb').MongoClient,
     bodyParser = require('body-parser'),
+    request = require('request'),
     assert = require('assert');
 
-var http = require('http');
-//The url we want is: 'www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
-var options = {
-  host: 'www.random.org',
-  path: '/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
-};
-callback = function(response) {
-  var str = '';
-  //another chunk of data has been recieved, so append it to `str`
-  response.on('data', function (chunk) {
-    str += chunk;
-  });
-  //the whole response has been recieved, so we just print it out here
-  response.on('end', function () {
-    console.log(str);
-  });
-}
-
-http.request(options, callback).end();
-
+const mc_api = "http://localhost:3100/";
 
 app.engine('html', engines.nunjucks);
 app.set('view engine', 'html');
@@ -32,14 +14,7 @@ app.set('views', __dirname + '/views');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/resources'));
 
-
-MongoClient.connect('mongodb://localhost:27017/video', function(err, db) {
-
-    assert.equal(null, err);
-    console.log("Successfully connected to MongoDB.");
-
-});
-
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
     //Handler for internal server errors
     function errorHandler(err, req, res){
@@ -77,6 +52,44 @@ MongoClient.connect('mongodb://localhost:27017/video', function(err, db) {
 
     app.get('/', function(req, res){
       res.render("login", arr);
+    });
+
+    //app.post('/', urlencodedParser, function(req, res){
+    //  if (!req.body) return res.sendStatus(400);
+    //  res.send('welcome, ' + req.body.email);
+    //  console.log(req.body);
+    //});
+
+    app.post('/', urlencodedParser, function(req,res){
+      var auth_url = mc_api + "login/"+ req.body.email + "/" + req.body.pwd;
+      request(auth_url, function (error, response, body) {
+
+        if (!body){
+          res.render("login", response && response.statusCode);
+        }else{
+
+          console.log(body);
+          var arr = {
+            'username': body.firstname + " " + body.lastname,
+            'email': body.email,
+            'status': body.status,
+            'year': y,
+            'month': m,
+            'loggedIn': true,
+            'tasks_label': 'My Tasks',
+            'courses_label':'My Courses',
+            'performance_label': 'My Performance',
+            'attendance_label': 'Attendance',
+            'submissions_label': 'My Submissions',
+            'manage_usr_label': 'Manage User',
+            'reports_label':'Reports'
+          };
+          res.render("tasks", arr);
+        }
+        //console.log('error:', error); // Print the error if one occurred
+        //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      //  console.log('body:', body); // Print the HTML for the Google homepage.
+      });
     });
 
     app.get('/home', function(req, res){
