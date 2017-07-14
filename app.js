@@ -15,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/resources'));
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
     //Handler for internal server errors
     function errorHandler(err, req, res){
       console.error(err.message);
@@ -25,7 +24,6 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
       }else if(res.status == 404) {
         res.render('404', {error: err});
       }
-
     }
 
     var monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
@@ -33,6 +31,10 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
     var d = new Date();
     var y = d.getFullYear();
+    var dd = d.getDay();
+    var hh = d.getHours();
+    var mm = d.getMinutes();
+    var ss = d.getSeconds();
     var m = monthNames[d.getMonth()];
 
     var arr = {
@@ -48,36 +50,41 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
       'reports_label':'Reports'
     };
 
-    //var routes = require('./routes/LoginRoutes');
-    //var router = express.Router();
-    //app.use('/', router);
+    //log the attendance register for student
+    var logAttendance = function(req, res, data){
+      var auth_url = mc_api + "attendance/";
+      var r = request.post(auth_url, {form:data});
+      console.log(r);
 
+      //email, fullname, year, month, day, time, att_id, gradepoint
+    }
+
+    //load login page
     app.get('/', function(req, res){
       res.render("login", arr);
     });
 
-    //app.post('/', urlencodedParser, function(req, res){
-    //  if (!req.body) return res.sendStatus(400);
-    //  res.send('welcome, ' + req.body.email);
-    //  console.log(req.body);
-    //});
-
+    //handle authentication of users.
     app.post('/', urlencodedParser, function(req,res){
+
       var auth_url = mc_api + "login/"+ req.body.email + "/" + req.body.pwd;
       request(auth_url, function (error, response, body) {
+        var info = JSON.parse(body);
+        if (info.length != 1){
+          res.render("login", {statusCode: response && response.statusCode, loggedIn: false});
+        }
+        if(info.length == 1){
 
-        if (!body){
-          res.render("login", response && response.statusCode);
-        }else{
-
-          console.log(body);
+          //prepare display data
           var arr = {
-            'username': body.firstname + " " + body.lastname,
-            'email': body.email,
-            'status': body.status,
+            'username': info[0].firstname + " " + info[0].lastname,
+            'email': info[0].email,
+            'status': info[0].status,
             'year': y,
             'month': m,
+            'day': dd,
             'loggedIn': true,
+            'body': info[0],
             'tasks_label': 'My Tasks',
             'courses_label':'My Courses',
             'performance_label': 'My Performance',
@@ -86,11 +93,19 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
             'manage_usr_label': 'Manage User',
             'reports_label':'Reports'
           };
+
+          //prepare attendance data
+          var _time = hh + ' ' + mm + ' ' + ss;
+          var att_data = {email: arr.email, fullname: arr.firstname + ' ' + arr.lastname,
+                          year: arr.year, month: arr.month, day: arr.day, time: _time,
+                          att_id: 'ATT0000001', gradepoint: 5};
+
+          logAttendance(req, res, att_data);
           res.render("tasks", arr);
         }
         //console.log('error:', error); // Print the error if one occurred
         //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-      //  console.log('body:', body); // Print the HTML for the Google homepage.
+        //console.log('body:', body); // Print the HTML for the Google homepage.
       });
     });
 
