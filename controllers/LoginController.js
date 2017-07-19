@@ -1,7 +1,10 @@
 'use strict';
 exports.getCurrentUser = function(req, res) {
+    console.log("error caused by: REDIRECT");
     if (arr.loggedIn != false){
       res.redirect("tasks");
+    }else{
+      res.render("login");
     }
 };
 
@@ -13,7 +16,6 @@ exports.authenticate = function(req, res) {
       res.render("login", {statusCode: response && response.statusCode, loggedIn: false});
     }
     if(info.length == 1){
-
       //prepare display data
       arr = {
         'username': info[0].firstname + " " + info[0].lastname,
@@ -31,7 +33,8 @@ exports.authenticate = function(req, res) {
                       att_id: getNewAttendanceId, gradepoint: 5};
 
       logAttendance(req, res, att_data);
-      res.redirect("tasks");
+      console.log("error caused by: REDIRECT AGAIN");
+      res.redirect("/tasks");
     }
     //console.log('error:', error); // Print the error if one occurred
     //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
