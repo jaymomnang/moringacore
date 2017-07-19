@@ -1,6 +1,7 @@
 'use strict';
 exports.list_all_tasks = function(req, res) {
 
+
   if (arr.loggedIn == false){
     res.redirect("/");
   }
@@ -8,7 +9,9 @@ exports.list_all_tasks = function(req, res) {
   var auth_url = mc_api + "tasks/";
   request(auth_url, function (error, response, body) {
     var data = JSON.parse(body);
-    //prepare display data
+    token.data = data;
+    console.log(token);
+    res.render("tasks", {menus, token, arr});
     });
 };
 

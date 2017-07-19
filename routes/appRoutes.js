@@ -19,7 +19,7 @@ module.exports = function(app) {
   global.mm = d.getMinutes();
   global.ss = d.getSeconds();
   global.m = monthNames[d.getMonth()];
-  global._time = hh + ' ' + mm + ' ' + ss;
+  global._time = hh + ':' + mm + ':' + ss;
 
   global.menus = {
       'tasks_label': 'My Tasks',

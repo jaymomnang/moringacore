@@ -1,6 +1,5 @@
 'use strict';
 exports.getCurrentUser = function(req, res) {
-    console.log("error caused by: REDIRECT");
     if (arr.loggedIn != false){
       res.redirect(urlpath + "tasks");
     }else{
@@ -27,14 +26,14 @@ exports.authenticate = function(req, res) {
       };
 
       //prepare attendance data
-      var _time = hh + ' ' + mm + ' ' + ss;
-      var att_data = {email: arr.email, fullname: arr.firstname + ' ' + arr.lastname,
-                      year: arr.year, month: arr.month, day: arr.day, time: _time,
-                      att_id: getNewAttendanceId, gradepoint: 5};
+      var _att_id= getNewAttendanceId();
+      var att_data = {email: arr.email, fullname: arr.username, year: token.year, month: token.month,
+                      day: token.day, time: token.time, att_id: _att_id, gradepoint: 5};
 
-      logAttendance(req, res, att_data);
-      console.log("error caused by: REDIRECT AGAIN");
-      res.redirect(urlpath + "/tasks");
+      var _att = logAttendance(att_data);
+      console.log(_att);
+      token.attendance = _att;
+      res.redirect(urlpath + "tasks");
     }
     //console.log('error:', error); // Print the error if one occurred
     //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -44,16 +43,17 @@ exports.authenticate = function(req, res) {
 
 //internally generated numbers for attendance records.
 var getNewAttendanceId = function(){
-  var auth_url = mc_api + "attendance/get";
+
+  var auth_url = mc_api + "attendance/getlast";
   request(auth_url, function (error, response, body) {
     var info = JSON.parse(body);
     var attId = "ATT0000001";
-    if (info.length != 1){
-      return attId;
-    }
-    if(info.length == 1){
 
-      var pos = Number(info[0].att_id.substring(3,10)) + 1;
+    if (!info){
+      return attId;
+    }else{
+
+      var pos = Number(info.att_id.substring(3,10)) + 1;
       var nxt = "ATT000000";
       switch(pos.toString().length) {
           case 2:
@@ -83,8 +83,14 @@ var getNewAttendanceId = function(){
 };
 
 //log the attendance register for student
-var logAttendance = function(req, res, data){
-  var auth_url = mc_api + "attendance/get";
-  var r = request.post(auth_url, {form:data});
-  //email, fullname, year, month, day, time, att_id, gradepoint
+var logAttendance = function(data){
+  var auth_url = mc_api + "attendance/";
+  var data1 = [];
+  request.post(auth_url, function (error, response, body) {
+      var return_data = JSON.parse(body);
+      //console.log(return_data);
+      console.log(response);
+      data1 = return_data;
+  }).form({form:data});
+  return data1;
 };
