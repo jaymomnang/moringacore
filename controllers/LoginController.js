@@ -2,7 +2,7 @@
 exports.getCurrentUser = function(req, res) {
     console.log("error caused by: REDIRECT");
     if (arr.loggedIn != false){
-      res.redirect("tasks");
+      res.redirect(urlpath + "tasks");
     }else{
       res.render("login");
     }
@@ -34,7 +34,7 @@ exports.authenticate = function(req, res) {
 
       logAttendance(req, res, att_data);
       console.log("error caused by: REDIRECT AGAIN");
-      res.redirect("/tasks");
+      res.redirect(urlpath + "/tasks");
     }
     //console.log('error:', error); // Print the error if one occurred
     //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
