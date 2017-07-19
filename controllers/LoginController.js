@@ -1,7 +1,8 @@
 'use strict';
 exports.getCurrentUser = function(req, res) {
-  console.log('I am here');
-  res.render("login", arr);
+    if (arr.loggedIn != false){
+      res.redirect("tasks");
+    }
 };
 
 exports.authenticate = function(req, res) {
@@ -14,22 +15,13 @@ exports.authenticate = function(req, res) {
     if(info.length == 1){
 
       //prepare display data
-      var arr = {
+      arr = {
         'username': info[0].firstname + " " + info[0].lastname,
         'email': info[0].email,
         'status': info[0].status,
-        'year': y,
-        'month': m,
-        'day': dd,
         'loggedIn': true,
         'body': info[0],
-        'tasks_label': 'My Tasks',
-        'courses_label':'My Courses',
-        'performance_label': 'My Performance',
-        'attendance_label': 'Attendance',
-        'submissions_label': 'My Submissions',
-        'manage_usr_label': 'Manage User',
-        'reports_label':'Reports'
+        'body': info[0].role,
       };
 
       //prepare attendance data
@@ -39,7 +31,7 @@ exports.authenticate = function(req, res) {
                       att_id: getNewAttendanceId, gradepoint: 5};
 
       logAttendance(req, res, att_data);
-      res.render("tasks", arr);
+      res.redirect("tasks");
     }
     //console.log('error:', error); // Print the error if one occurred
     //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
@@ -91,7 +83,5 @@ var getNewAttendanceId = function(){
 var logAttendance = function(req, res, data){
   var auth_url = mc_api + "attendance/get";
   var r = request.post(auth_url, {form:data});
-  console.log(r);
-
   //email, fullname, year, month, day, time, att_id, gradepoint
 };

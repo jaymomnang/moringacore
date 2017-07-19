@@ -21,11 +21,7 @@ module.exports = function(app) {
   global.m = monthNames[d.getMonth()];
   global._time = hh + ' ' + mm + ' ' + ss;
 
-  global.arr = {
-      'year': y,
-      'month': m,
-      'day': dd,
-      'time': _time,
+  global.menus = {
       'tasks_label': 'My Tasks',
       'courses_label':'My Courses',
       'performance_label': 'My Performance',
@@ -33,7 +29,23 @@ module.exports = function(app) {
       'submissions_label': 'My Submissions',
       'manage_usr_label': 'Manage User',
       'reports_label':'Reports'
-    };
+  };
+
+  global.token = {
+    'year': y,
+    'month': m,
+    'day': dd,
+    'time': _time,
+  };
+
+  global.arr = {
+    'username': '',
+    'email': '',
+    'status': 'inactive',
+    'loggedIn': false,
+    'body': '',
+    'role': '',
+  };
 
   // Login Routes
   app.route('/')

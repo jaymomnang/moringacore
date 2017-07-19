@@ -136,7 +136,7 @@
                         <!-- /input-group -->
                     </li>
                     <li class="user-pro">
-                        <a href="#" class="waves-effect"><img src="plugins/images/users/d1.jpg" alt="user-img" class="img-circle"> <span class="hide-menu">{{username}}<span class="fa arrow"></span></span>
+                        <a href="#" class="waves-effect"><img src="plugins/images/users/d1.jpg" alt="user-img" class="img-circle"> <span class="hide-menu">{{arr.username}}<span class="fa arrow"></span></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>
@@ -144,14 +144,14 @@
                         </ul>
                     </li>
                     <li class="nav-small-cap m-t-10">--- Quick Menu</li>
-                    <li><a href="tasks" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">{{tasks_label}}</span></a></li>
-                    <li><a href="courses" class="waves-effect"><i data-icon="&#xe00a;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{courses_label}}</span></a></li>
-                    <li><a href="home" class="waves-effect active"><i data-icon="C" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{performance_label}}</span></a></li>
-                    <li><a href="submissions" class="waves-effect"><i data-icon="?" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{submissions_label}}</span></a></li>
+                    <li><a href="tasks" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">{{menus.tasks_label}}</span></a></li>
+                    <li><a href="courses" class="waves-effect"><i data-icon="&#xe00a;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{menus.courses_label}}</span></a></li>
+                    <li><a href="home" class="waves-effect active"><i data-icon="C" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{menus.performance_label}}</span></a></li>
+                    <li><a href="submissions" class="waves-effect"><i data-icon="?" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{menus.submissions_label}}</span></a></li>
                     <li class="nav-small-cap">--- Administration</li>
-                    <li><a href="manage_usr" class="waves-effect"><i class="fa fa-users fa-fw"></i> <span class="hide-menu"> {{manage_usr_label}}</span></a></li>
-                    <li><a href="attendance" class="waves-effect"><i class="fa fa-calendar fa-fw"></i> <span class="hide-menu"> {{attendance_label}}</span></a></li>
-                    <li><a href="reports" class="waves-effect"><i class="fa fa-bar-chart-o fa-fw"></i> <span class="hide-menu"> {{reports_label}}</span></a></li>
+                    <li><a href="manage_usr" class="waves-effect"><i class="fa fa-users fa-fw"></i> <span class="hide-menu"> {{menus.manage_usr_label}}</span></a></li>
+                    <li><a href="attendance" class="waves-effect"><i class="fa fa-calendar fa-fw"></i> <span class="hide-menu"> {{menus.attendance_label}}</span></a></li>
+                    <li><a href="reports" class="waves-effect"><i class="fa fa-bar-chart-o fa-fw"></i> <span class="hide-menu"> {{menus.reports_label}}</span></a></li>
                     <li class="nav-small-cap"></li>
                     <li><a href="/" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu"> Log Out</span></a></li>
                 </ul>
@@ -180,7 +180,7 @@
                                 <div class="col-lg-3 col-sm-6 row-in-br">
                                     <div class="col-in row">
                                         <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-user"></i>
-                                            <h5 class="text-muted vb">{{month}}<br /> CLIENTS</h5> </div>
+                                            <h5 class="text-muted vb">{{token.month}}<br /> CLIENTS</h5> </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <h3 class="counter text-right m-t-15 text-danger">23</h3> </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -193,7 +193,7 @@
                                 <div class="col-lg-3 col-sm-6 row-in-br  b-r-none">
                                     <div class="col-in row">
                                         <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-pencil-alt"></i>
-                                            <h5 class="text-muted vb">{{month}}<br /> INVOICES</h5> </div>
+                                            <h5 class="text-muted vb">{{token.month}}<br /> INVOICES</h5> </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <h3 class="counter text-right m-t-15 text-info">169</h3> </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -219,7 +219,7 @@
                                 <div class="col-lg-3 col-sm-6  b-0">
                                     <div class="col-in row">
                                         <div class="col-md-6 col-sm-6 col-xs-6"> <i class="ti-receipt"></i>
-                                            <h5 class="text-muted vb">{{month}}<br /> PAYMENTS</h5> </div>
+                                            <h5 class="text-muted vb">{{token.month}}<br /> PAYMENTS</h5> </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6">
                                             <h3 class="counter text-right m-t-15 text-warning">157</h3> </div>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
@@ -238,7 +238,7 @@
                 <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="white-box">
-                            <h3 class="box-title">{{month}} Sales </h3>
+                            <h3 class="box-title">{{token.month}} Sales </h3>
                             <ul class="list-inline text-right">
                                 <li>
                                     <h5><i class="fa fa-circle m-r-5" style="color: #00bfc7;"></i>iPhone</h5> </li>
@@ -360,7 +360,7 @@
                 <!-- /.right-sidebar -->
             </div>
             <!-- /.container-fluid -->
-            <footer class="footer text-center"> {{year}} &copy; MoringaCore</footer>
+            <footer class="footer text-center"> {{token.year}} &copy; MoringaCore</footer>
         </div>
         <!-- /#page-wrapper -->
     </div>
