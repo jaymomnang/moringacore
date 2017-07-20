@@ -18,7 +18,8 @@ module.exports = function(app) {
   global.hh = d.getHours();
   global.mm = d.getMinutes();
   global.ss = d.getSeconds();
-  global.m = monthNames[d.getMonth()];
+  global.m = d.getMonth();
+  global.mn = monthNames[d.getMonth()];
   global._time = hh + ':' + mm + ':' + ss;
 
   global.menus = {
@@ -34,6 +35,7 @@ module.exports = function(app) {
   global.token = {
     'year': y,
     'month': m,
+    'monthname': mn,
     'day': dd,
     'time': _time,
   };

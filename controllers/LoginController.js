@@ -1,10 +1,11 @@
 'use strict';
 exports.getCurrentUser = function(req, res) {
-    if (arr.loggedIn != false){
-      res.redirect(urlpath + "tasks");
-    }else{
-      res.render("login");
-    }
+    //if (arr.loggedIn != false){
+    //  res.redirect(urlpath + "tasks");
+    //}else{
+    //  res.render("login");
+    //}
+    res.render("login");
 };
 
 exports.authenticate = function(req, res) {
@@ -26,13 +27,13 @@ exports.authenticate = function(req, res) {
       };
 
       //prepare attendance data
-      var _att_id= getNewAttendanceId();
       var att_data = {email: arr.email, fullname: arr.username, year: token.year, month: token.month,
-                      day: token.day, time: token.time, att_id: _att_id, gradepoint: 5};
+                      day: token.day, time: token.time, att_id: token.nxt_att_Id, gradepoint: 5};
 
-      var _att = logAttendance(att_data);
-      console.log(_att);
-      token.attendance = _att;
+      if (token.attendanceLogged != true){
+        logAttendance(att_data);
+        getNewAttendanceId();
+      }
       res.redirect(urlpath + "tasks");
     }
     //console.log('error:', error); // Print the error if one occurred
@@ -48,11 +49,10 @@ var getNewAttendanceId = function(){
   request(auth_url, function (error, response, body) {
     var info = JSON.parse(body);
     var attId = "ATT0000001";
-
     if (!info){
       return attId;
-    }else{
-
+    }
+    if(info.att_id != ''){
       var pos = Number(info.att_id.substring(3,10)) + 1;
       var nxt = "ATT000000";
       switch(pos.toString().length) {
@@ -77,7 +77,7 @@ var getNewAttendanceId = function(){
           default:
               nxt = nxt + pos.toString();
       }
-      return nxt;
+      token.nxt_att_Id = nxt;
     }
   });
 };
@@ -86,11 +86,9 @@ var getNewAttendanceId = function(){
 var logAttendance = function(data){
   var auth_url = mc_api + "attendance/";
   var data1 = [];
-  request.post(auth_url, function (error, response, body) {
-      var return_data = JSON.parse(body);
-      //console.log(return_data);
-      console.log(response);
-      data1 = return_data;
-  }).form({form:data});
-  return data1;
+  request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:data }, function(error, response, body){
+    data1 = JSON.parse(body);
+    token.attendanceLogged = true;
+    token.attendance = data1;
+  });
 };
