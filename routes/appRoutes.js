@@ -61,6 +61,7 @@ module.exports = function(app) {
   app.route('/tasks')
     .get(tasks.list_all_tasks)
     .post(tasks.load_task);
+    
   app.route('/tasks/:taskId')
     .get(tasks.get_task)
     .put(tasks.update_task)

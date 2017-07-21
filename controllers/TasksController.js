@@ -19,11 +19,6 @@ exports.list_all_tasks = function(req, res) {
 };
 
 exports.load_task = function(req, res) {
-
-  if (arr.loggedIn == false){
-    res.redirect("/");
-  }
-
   var new_task = new Task(req.body);
   var url_partial = "tasks/" + new_task.taskid;
   var auth_url = mc_api + url_partial;
