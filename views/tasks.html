@@ -158,7 +158,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">User Tasks </h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                        <a href="" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light" style="{{ buttons.add_task }}">Add Task</a>
+                        <a href="" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light" data-toggle="modal" data-target="#taskModal" style="{{ buttons.add_task }}">Add Task</a>
                         <ol class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li class="active">Tasks</li>
@@ -209,6 +209,44 @@
                         </div>
                     </div>-->
                     <!-- /.usercard-->
+                    <!-- modal-->
+                    <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel1">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="exampleModalLabel1">Task Details</h4> </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">Course Code:</label>
+                                            <input type="text" class="form-control" id="course" name="courses.course"> </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">Course Title:</label>
+                                            <input type="text" class="form-control" id="coursedescr" name="courses.description"> </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">Grade Point:</label>
+                                            <input type="text" class="form-control" id="gradepoint" name="courses.gradepoint"> </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">Due Date:</label>
+                                            <input type="text" class="form-control" id="duedate" name="duedate"> </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">Status:</label>
+                                            <input type="text" class="form-control" id="status" name="status"> </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">Instructions:</label>
+                                            <textarea class="form-control" id="description" name="description"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save Task</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.modal-->
                 </div>
                 <!-- /.row -->
                 <!-- .right-sidebar -->
