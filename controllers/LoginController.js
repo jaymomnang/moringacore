@@ -23,8 +23,9 @@ exports.authenticate = function(req, res) {
         'status': info[0].status,
         'loggedIn': true,
         'body': info[0],
-        'body': info[0].role,
+        'role': info[0].role,
       };
+
 
       //prepare attendance data
       var att_data = {email: arr.email, fullname: arr.username, year: token.year, month: token.month,
@@ -32,18 +33,14 @@ exports.authenticate = function(req, res) {
 
       if (token.attendanceLogged != true){
         logAttendance(att_data);
-        getNewAttendanceId();
       }
       res.redirect(urlpath + "tasks");
     }
-    //console.log('error:', error); // Print the error if one occurred
-    //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    //console.log('body:', body); // Print the HTML for the Google homepage.
   });
 };
 
 //internally generated numbers for attendance records.
-var getNewAttendanceId = function(){
+var getNewAttendanceId = function(callback){
 
   var auth_url = mc_api + "attendance/getlast";
   request(auth_url, function (error, response, body) {
@@ -77,7 +74,7 @@ var getNewAttendanceId = function(){
           default:
               nxt = nxt + pos.toString();
       }
-      token.nxt_att_Id = nxt;
+      return callback(nxt);
     }
   });
 };
@@ -85,9 +82,13 @@ var getNewAttendanceId = function(){
 //log the attendance register for student
 var logAttendance = function(data){
   var auth_url = mc_api + "attendance/";
-  var data1 = [];
+  getNewAttendanceId(function(response){
+    token.nxt_att_Id = response;
+    data.att_id = response;
+  });
+  console.log(token.nxt_att_Id);
   request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:data }, function(error, response, body){
-    data1 = JSON.parse(body);
+    var data1 = JSON.parse(body);
     token.attendanceLogged = true;
     token.attendance = data1;
   });

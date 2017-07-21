@@ -158,6 +158,7 @@
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">User Tasks </h4> </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <a href="" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light" style="{{ buttons.add_task }}">Add Task</a>
                         <ol class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li class="active">Tasks</li>
@@ -168,26 +169,29 @@
                 <!-- .row -->
                 <div class="row el-element-overlay m-b-40">
                     <!-- /.usercard -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="white-box">
-                            <div class="el-card-item">
-                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
-                                    <div class="el-overlay">
-                                        <ul class="el-info">
-                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
-                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="el-card-content">
-                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
-                                    <br/> </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% for task in token.data %}
+                      {{ task.taskid }}<br />
+                      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                          <div class="white-box">
+                              <div class="el-card-item">
+                                  <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
+                                      <div class="el-overlay">
+                                          <ul class="el-info">
+                                              <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
+                                              <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                                  <div class="el-card-content">
+                                      <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
+                                      <br/> </div>
+                              </div>
+                          </div>
+                      </div>
+                    {% endfor %}
                     <!-- /.usercard-->
                     <!-- /.usercard -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <!--<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="white-box">
                             <div class="el-card-item">
                                 <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/2.jpg" />
@@ -203,125 +207,7 @@
                                     <br/> </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /.usercard-->
-                    <!-- /.usercard -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="white-box">
-                            <div class="el-card-item">
-                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/3.jpg" />
-                                    <div class="el-overlay">
-                                        <ul class="el-info">
-                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/3.jpg"><i class="icon-magnifier"></i></a></li>
-                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="el-card-content">
-                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
-                                    <br/> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.usercard-->
-                    <!-- /.usercard -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="white-box">
-                            <div class="el-card-item">
-                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/4.jpg" />
-                                    <div class="el-overlay">
-                                        <ul class="el-info">
-                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/4.jpg"><i class="icon-magnifier"></i></a></li>
-                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="el-card-content">
-                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
-                                    <br/> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.usercard-->
-                </div>
-                <!-- /.row -->
-                <!-- .row -->
-                <div class="row el-element-overlay m-b-40">
-                    <!-- /.usercard -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="white-box">
-                            <div class="el-card-item">
-                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/5.jpg" />
-                                    <div class="el-overlay scrl-dwn">
-                                        <ul class="el-info">
-                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/5.jpg"><i class="icon-magnifier"></i></a></li>
-                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="el-card-content">
-                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
-                                    <br/> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.usercard-->
-                    <!-- /.usercard -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="white-box">
-                            <div class="el-card-item">
-                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/6.jpg" />
-                                    <div class="el-overlay scrl-dwn">
-                                        <ul class="el-info">
-                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/6.jpg"><i class="icon-magnifier"></i></a></li>
-                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="el-card-content">
-                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
-                                    <br/> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.usercard-->
-                    <!-- /.usercard -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="white-box">
-                            <div class="el-card-item">
-                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/7.jpg" />
-                                    <div class="el-overlay scrl-dwn">
-                                        <ul class="el-info">
-                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/7.jpg"><i class="icon-magnifier"></i></a></li>
-                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="el-card-content">
-                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
-                                    <br/> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.usercard-->
-                    <!-- /.usercard -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="white-box">
-                            <div class="el-card-item">
-                                <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/8.jpg" />
-                                    <div class="el-overlay scrl-dwn">
-                                        <ul class="el-info">
-                                            <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/8.jpg"><i class="icon-magnifier"></i></a></li>
-                                            <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="el-card-content">
-                                    <h3 class="box-title">Genelia Deshmukh</h3> <small>Managing Director</small>
-                                    <br/> </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div>-->
                     <!-- /.usercard-->
                 </div>
                 <!-- /.row -->

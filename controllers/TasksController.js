@@ -10,8 +10,11 @@ exports.list_all_tasks = function(req, res) {
   request(auth_url, function (error, response, body) {
     var data = JSON.parse(body);
     token.data = data;
-    console.log(token);
-    res.render("tasks", {menus, token, arr});
+    console.log(arr);
+    if (arr.role != 'Admin'){
+      buttons.add_task = 'display: none;';
+    }
+    res.render("tasks", {menus, token, arr, buttons});
     });
 };
 
