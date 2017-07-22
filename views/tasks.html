@@ -217,7 +217,7 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     <h4 class="modal-title" id="exampleModalLabel1">Task Details</h4> </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form method="post">
                                         <div class="form-group">
                                             <label for="recipient-name" class="control-label">Course Code:</label>
                                             <input type="text" class="form-control" id="course" name="courses.course"> </div>
@@ -226,10 +226,10 @@
                                             <input type="text" class="form-control" id="coursedescr" name="courses.description"> </div>
                                         <div class="form-group col-md-6">
                                             <label for="recipient-name" class="control-label">Grade Point:</label>
-                                            <input type="text" class="form-control" id="gradepoint" name="courses.gradepoint"> </div>
+                                            <input type="number" class="form-control" id="gradepoint" name="courses.gradepoint"> </div>
                                         <div class="form-group col-md-6">
                                             <label for="recipient-name" class="control-label">Due Date:</label>
-                                            <input type="text" class="form-control" id="duedate" name="duedate"> </div>
+                                            <input type="date" class="form-control" id="duedate" name="duedate"> </div>
                                         <div class="form-group">
                                             <label for="recipient-name" class="control-label">Status:</label>
                                             <input type="text" class="form-control" id="status" name="status"> </div>
@@ -237,12 +237,13 @@
                                             <label for="message-text" class="control-label">Instructions:</label>
                                             <textarea class="form-control" id="description" name="description"></textarea>
                                         </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save Task</button>
+                                        </div>
                                     </form>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save Task</button>
-                                </div>
+
                             </div>
                         </div>
                     </div>

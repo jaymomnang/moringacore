@@ -19,15 +19,18 @@ exports.list_all_tasks = function(req, res) {
 };
 
 exports.load_task = function(req, res) {
-  var new_task = new Task(req.body);
-  var url_partial = "tasks/" + new_task.taskid;
+  var url_partial = "tasks/";
   var auth_url = mc_api + url_partial;
 
-  request(auth_url, function (error, response, body) {
-    var data = JSON.parse(body);
-    //prepare display data
-      res.redirect(url_partial);
-    });
+  request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
+    var data1 = JSON.parse(body);
+
+    if (!error){
+        console.log(error);
+    }
+      swal('Success!','Tasks created successfully!','success');
+    res.render('tasks');
+  });
 
 };
 
