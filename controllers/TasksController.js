@@ -1,16 +1,16 @@
 'use strict';
+
+//load page defaults
 exports.list_all_tasks = function(req, res) {
-
-
   if (arr.loggedIn == false){
-    res.redirect("/");
+    res.render("login");
   }
 
   var auth_url = mc_api + "tasks/";
   request(auth_url, function (error, response, body) {
     var data = JSON.parse(body);
     token.data = data;
-    console.log(arr);
+    console.log(data);
     if (arr.role != 'Admin'){
       buttons.add_task = 'display: none;';
     }
@@ -18,24 +18,36 @@ exports.list_all_tasks = function(req, res) {
     });
 };
 
+//post page data
 exports.load_task = function(req, res) {
   var url_partial = "tasks/";
   var auth_url = mc_api + url_partial;
 
   request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
     var data1 = JSON.parse(body);
-
+    var msg = 'Error creating task, Please contact your administrator';
+    var failed = true;
     if (!error){
-        console.log(error);
+        failed = false;
+        msg = 'successfully created task';
+
+        //load tasks
+        var auth_url = mc_api + "tasks/";
+        request(auth_url, function (error, response, body) {
+          var data = JSON.parse(body);
+          token.data = data;
+          if (arr.role != 'Admin'){
+            buttons.add_task = 'display: none;';
+          }
+        });
     }
-      swal('Success!','Tasks created successfully!','success');
-    res.render('tasks');
+    res.render('tasks', {menus, token, arr, buttons, failed, msg});
   });
 
 };
 
-exports.get_task = function(req, res) {
 
+exports.get_task = function(req, res) {
   if (arr.loggedIn == false){
     res.redirect("/");
   }

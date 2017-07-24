@@ -10,7 +10,7 @@ global.bodyParser = require('body-parser');
 global.request = require('request');
 global.mc_api = "http://localhost:3100/";
 global.urlpath = "http://localhost:3200/";
-global.swal = require('sweetalert');
+//global.swal = require('sweetalert');
 
 //Handler for internal server errors
 //function errorHandler(err, req, res){

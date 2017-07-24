@@ -61,7 +61,7 @@ module.exports = function(app) {
   app.route('/tasks')
     .get(tasks.list_all_tasks)
     .post(tasks.load_task);
-    
+
   app.route('/tasks/:taskId')
     .get(tasks.get_task)
     .put(tasks.update_task)
@@ -85,11 +85,11 @@ module.exports = function(app) {
     .delete(user.delete_user);
 
   // Courses Routes
-  app.route('/course')
+  app.route('/courses')
     .get(course.list_all_courses)
     .post(course.create_course);
 
-  app.route('/course/:course')
+  app.route('/courses/:course')
     .get(course.get_course)
     .put(course.update_course)
     .delete(course.delete_course);
