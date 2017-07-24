@@ -38,7 +38,7 @@ exports.create_course = function(req, res) {
           }
         });
     }
-    res.render('course', {menus, token, arr, buttons, failed, msg});
+    res.render('courses', {menus, token, arr, buttons, failed, msg});
   });
 
 };
