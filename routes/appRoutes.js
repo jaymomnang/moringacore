@@ -14,7 +14,7 @@ module.exports = function(app) {
 
   global.d = new Date();
   global.y = d.getFullYear();
-  global.dd = d.getDay();
+  global.dd = d.getDate();
   global.hh = d.getHours();
   global.mm = d.getMinutes();
   global.ss = d.getSeconds();

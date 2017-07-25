@@ -147,15 +147,13 @@
                             <div class="modal-body">
                                 <form method="post">
                                     <div class="form-group">
-                                        <label for="recipient-name" class="control-label">Course Code:</label>
-                                        <input type="text" class="form-control" id="course" name="courses.course"> </div>
+                                        <label for="recipient-name" class="control-label">Course:</label>
+                                        <select class="form-control" id="status" name="course">
+                                          {% for c in token.courses %}
+                                            <option class="form-control" value="{{c.course}}">{{c.course}} - {{c.description}}</option>
+                                          {% endfor %}
+                                        </select> </div>
                                     <div class="form-group">
-                                        <label for="recipient-name" class="control-label">Course Title:</label>
-                                        <input type="text" class="form-control" id="coursedescr" name="courses.description"> </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="recipient-name" class="control-label">Grade Point:</label>
-                                        <input type="number" class="form-control" id="gradepoint" name="courses.gradepoint"> </div>
-                                    <div class="form-group col-md-6">
                                         <label for="recipient-name" class="control-label">Due Date:</label>
                                         <input type="date" class="form-control" id="duedate" name="duedate"> </div>
                                     <div class="form-group">
