@@ -20,28 +20,23 @@ exports.create_course = function(req, res) {
   var url_partial = "course/";
   var auth_url = mc_api + url_partial;
 
+  req.body.isActive = true;
   request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
-    var data1 = JSON.parse(body);
+    var data = JSON.parse(body);
     var msg = 'Error adding course, Please contact your administrator';
+
     var failed = true;
-    if (!error){
+    if (error == null){
         failed = false;
+        console.log(error);
         msg = 'successfully added course';
-
-        //load tasks
-        var auth_url = mc_api + "course/";
-        request(auth_url, function (error, response, body) {
-          var data = JSON.parse(body);
-          token.data = data;
-          if (arr.role != 'Admin'){
-            buttons.add_task = 'display: none;';
-            res.render('courses', {menus, token, arr, buttons, failed, msg});
-          }
-        });
+        token.data = data;
+        if (arr.role == 'Admin'){
+          buttons.add_task = 'display: none;';
+          res.render('courses', {menus, token, arr, buttons, failed, msg});
+        }
     }
-
   });
-
 };
 
 exports.get_course = function(req, res) {

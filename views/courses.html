@@ -119,11 +119,8 @@
                     <div class="col-md-4 col-sm-4">
                         <div class="white-box">
                             <div class="row">
-                                <!--<div class="col-md-4 col-sm-4 text-center">
-                                    <a href="contact-detail.html"><img src="plugins/images/users/d1.jpg" alt="user" class="img-circle img-responsive"></a>
-                                </div>-->
                                 <div class="col-md-12">
-                                    <h3 class="box-title m-b-0">Code: {{course.course}}</h3> <small>Active: {{course.max_grade_point}}</small>
+                                    <h3 class="box-title m-b-0">Code: {{course.course}}</h3> <small>Grade Point: {{course.max_grade_point}}</small>
                                     <p> {{course.description}} </p>
                                 </div>
                                 <form method="post">
@@ -151,16 +148,13 @@
                                 <form method="post">
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">Course Code:</label>
-                                        <input type="text" class="form-control" id="course" name="course"> </div>
+                                        <input type="text" class="form-control" id="course" name="course" required> </div>
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">Course Title:</label>
-                                        <input type="text" class="form-control" id="description" name="description"> </div>
+                                        <input type="text" class="form-control" id="description" name="description" required> </div>
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">Grade Point:</label>
-                                        <input type="number" class="form-control" id="gradepoint" name="gradepoint"> </div>
-                                    <div class="form-group col-md-6" style="display: none;">
-                                        <label for="recipient-name" class="control-label">Active:</label>
-                                        <input type="radio" checked="checked" class="form-control" id="isactive" name="isactive"> </div>
+                                        <input type="number" class="form-control" id="max_grade_point" name="max_grade_point" required> </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                         <button type="submit" class="btn btn-primary">Save Task</button>

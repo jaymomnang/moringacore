@@ -113,26 +113,27 @@
                 <!-- .row -->
 
 
-                <div class="row el-element-overlay m-b-40">
+                <div class="row">
                     {% for task in token.data %}
                     <!-- /.usercard -->
-                      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                          <div class="white-box">
-                              <div class="el-card-item">
-                                  <div class="el-card-avatar el-overlay-1"> <img src="plugins/images/users/1.jpg" />
-                                      <div class="el-overlay">
-                                          <ul class="el-info">
-                                              <li><a class="btn default btn-outline image-popup-vertical-fit" href="plugins/images/users/1.jpg"><i class="icon-magnifier"></i></a></li>
-                                              <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
-                                          </ul>
-                                      </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="white-box">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="box-title m-b-0">Course: {{task.course.course}}-{{task.course.description}}</h3> <small>GradePoint: {{task.course.gradepoint}}</small>
+                                    <p> Instructions: {{task.description}} </p>
+                                    <h3>Due Date: {{task.duedate}}</h3>
+                                </div>
+                                <form method="post">
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-primary">Details</button>
+                                      <button type="submit" class="btn btn-default">Submit Task</button>
                                   </div>
-                                  <div class="el-card-content">
-                                      <h3 class="box-title">{{ task.courses.course }}</h3> <small>{{ task.courses.description }}</small>
-                                      <br/> </div>
-                              </div>
-                          </div>
-                      </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                       {% endfor %}
                 </div>
                 <!-- /.row -->
@@ -148,21 +149,21 @@
                                 <form method="post">
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">Course:</label>
-                                        <select class="form-control" id="status" name="course">
+                                        <select class="form-control" id="status" name="course" required>
                                           {% for c in token.courses %}
                                             <option class="form-control" value="{{c.course}}">{{c.course}} - {{c.description}}</option>
                                           {% endfor %}
                                         </select> </div>
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">Due Date:</label>
-                                        <input type="date" class="form-control" id="duedate" name="duedate"> </div>
+                                        <input type="date" class="form-control" id="duedate" name="duedate" required> </div>
                                     <div class="form-group">
                                         <label for="message-text" class="control-label">Instructions:</label>
-                                        <textarea class="form-control" id="description" name="description"></textarea>
+                                        <textarea class="form-control" id="description" name="description" required></textarea>
                                     </div>
                                     <div class="form-group">
                                         <h5 class="box-title">Assign Task to Students (hold down the CTRL-key to select multiple)</h5>
-                                        <select name="students" multiple='multiple' class="col-sm-12">
+                                        <select name="students" multiple='multiple' class="col-sm-12" required>
                                           {% for u in token.users %}
                                             {% if u.role != 'Admin' %}
                                                 <option value='{{u.email}}'>{{u.firstname}} {{u.lastname}}</option>
