@@ -119,16 +119,19 @@
                     <div class="col-md-4 col-sm-4">
                         <div class="white-box">
                             <div class="row">
-                                <div class="col-md-4 col-sm-4 text-center">
+                                <!--<div class="col-md-4 col-sm-4 text-center">
                                     <a href="contact-detail.html"><img src="plugins/images/users/d1.jpg" alt="user" class="img-circle img-responsive"></a>
+                                </div>-->
+                                <div class="col-md-12">
+                                    <h3 class="box-title m-b-0">Code: {{course.course}}</h3> <small>Active: {{course.max_grade_point}}</small>
+                                    <p> {{course.description}} </p>
                                 </div>
-                                <div class="col-md-8 col-sm-8">
-                                    <h3 class="box-title m-b-0">Johnathan Doe</h3> <small>Cardio</small>
-                                    <p> <address>
-                            795 Folsom Ave, Suite 600 San Francisco, CADGE 94107<br/><br/>
-                            <abbr title="Phone">P:</abbr> (123) 456-7890
-                        </address> </p>
-                                </div>
+                                <form method="post">
+                                  <div class="modal-footer">
+                                      <button type="button" class="btn btn-primary">Details</button>
+                                      <button type="submit" class="btn btn-default">Discontinue</button>
+                                  </div>
+                                </form>
                             </div>
                         </div>
                     </div>

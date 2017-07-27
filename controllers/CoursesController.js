@@ -35,10 +35,11 @@ exports.create_course = function(req, res) {
           token.data = data;
           if (arr.role != 'Admin'){
             buttons.add_task = 'display: none;';
+            res.render('courses', {menus, token, arr, buttons, failed, msg});
           }
         });
     }
-    res.render('courses', {menus, token, arr, buttons, failed, msg});
+
   });
 
 };
