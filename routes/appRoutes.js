@@ -38,6 +38,7 @@ module.exports = function(app) {
     'monthname': mn,
     'day': dd,
     'time': _time,
+    'hour': hh,
   };
 
   global.arr = {

@@ -27,7 +27,7 @@ exports.authenticate = function(req, res) {
       };
       //prepare attendance data
       var att_data = {email: arr.email, fullname: arr.username, year: token.year, month: token.month,
-                      day: token.day, time: token.time, att_id: token.nxt_att_Id, gradepoint: 5};
+                      day: token.day, time: token.time, att_id: token.nxt_att_Id, gradepoint: hh};
 
       if (token.attendanceLogged != true){
         logAttendance(att_data);
