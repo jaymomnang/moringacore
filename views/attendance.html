@@ -11,14 +11,15 @@
     <title>MoringaCore</title>
     <!-- Bootstrap Core CSS -->
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
+    <link href="plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
     <!-- Menu CSS -->
     <link href="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
     <!-- Calendar CSS -->
     <link href="plugins/bower_components/calendar/dist/fullcalendar.css" rel="stylesheet" />
     <link href="plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="bootstrap/dist/css/button.dataTables.min.css" rel="stylesheet" type="text/css" />
-
+    <!--alerts CSS -->
+    <link href="plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
     <!-- animation CSS -->
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -101,7 +102,7 @@
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Attendance</h4> </div>
-                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="" target="_blank" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Print Attendance</a>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="#" id="print_a" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Print Attendance</a>
                         <ol class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li class="active">Attendance</li>
@@ -222,6 +223,10 @@
     <script src="js/buttons.html5.min.js"></script>
     <script src="js/buttons.print.min.js"></script>
     <!-- end - This is for export functionality only -->
+
+    <!-- Sweet-Alert  -->
+    <script src="plugins/bower_components/sweetalert/sweetalert.min.js"></script>
+    <script src="plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
     <!-- Calendar JavaScript -->
     <script src="plugins/bower_components/calendar/jquery-ui.min.js"></script>
     <!--Style Switcher -->
@@ -229,6 +234,9 @@
     <script>
       $(document).ready(function () {
           $('#myTable').DataTable();
+          $('#print_a').click(function(){
+              swal('System Info','print function coming soon.....','success');
+          });
       });
     </script>
 </body>

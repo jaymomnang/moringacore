@@ -60,12 +60,12 @@ module.exports = function(app) {
   // Tasks Routes
   app.route('/tasks')
     .get(tasks.list_all_tasks)
-    .post(tasks.load_task);
-
-  app.route('/tasks/:taskId')
-    .get(tasks.get_task)
+    .post(tasks.add_task)
     .put(tasks.update_task)
     .delete(tasks.delete_task);
+
+  app.route('/tasks/:taskId')
+    .get(tasks.get_task);
 
   // Performance Routes
   app.route('/home')
