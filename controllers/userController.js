@@ -11,10 +11,13 @@ var getHash = function(pwd){
 
 
 exports.get_users = function(req, res) {
-  user.find({}, function(err, user) {
-    if (err)
-      res.send(err);
-    res.json(user);
+  ///get users data
+  var _url2 = mc_api + "login/";
+  request(_url2, function (error, response, body) {
+    var data2 = JSON.parse(body);
+    if (error) return error;
+    token.data = data2;
+    res.render("users", {menus, token, arr});
   });
 };
 
