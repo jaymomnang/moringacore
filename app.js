@@ -5,23 +5,10 @@ var express = require('express'),
     routes = require('./routes/appRoutes'),
     assert = require('assert');
 
-
 global.bodyParser = require('body-parser');
 global.request = require('request');
 global.mc_api = "http://localhost:3100/";
 global.urlpath = "http://localhost:3200/";
-//global.swal = require('sweetalert');
-
-//Handler for internal server errors
-//function errorHandler(err, req, res){
-//  console.error(err.message);
-//  console.error(err.stack);
-//  if (res.status == 500){
-//    res.render('errtemplate', {error: err});
-//  }else if(res.status == 404) {
-//    res.render('404', {error: err});
-//  }
-//}
 
 //initialize bodyParser and errorHandler
 app.engine('html', engines.nunjucks);
