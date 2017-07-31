@@ -20,6 +20,8 @@
     <link href="css/animate.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/style.min.css" rel="stylesheet">
+    <!--alerts CSS -->
+    <link href="plugins/bower_components/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
 
     <!-- color CSS you can use different color css from css/colors folder -->
     <!-- We have chosen the skin-blue (green.css) for this starter
@@ -116,7 +118,7 @@
                 <div class="row">
                     <!-- .col -->
                     {% for course in token.data %}
-                    <!--<div class="col-md-4 col-sm-4">
+                    <div class="col-md-4 col-sm-4">
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-12">
@@ -131,13 +133,13 @@
                                 </form>
                             </div>
                         </div>
-                    </div>-->
+                    </div>
                     {% endfor %}
                     <!-- /.col -->
                 </div>
                 <!-- /.row -->
 
-                <!-- modal--><!--
+                <!-- modal-->
                 <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel1">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -164,7 +166,7 @@
 
                         </div>
                     </div>
-                </div>-->
+                </div>
                 <!-- /.modal-->
 
 
@@ -231,6 +233,9 @@
     <script src="plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
     <!--slimscroll JavaScript -->
     <script src="js/jquery.slimscroll.js"></script>
+    <!-- Sweet-Alert  -->
+    <script src="plugins/bower_components/sweetalert/sweetalert.min.js"></script>
+    <script src="plugins/bower_components/sweetalert/jquery.sweet-alert.custom.js"></script>
     <!--Wave Effects -->
     <script src="js/waves.js"></script>
     <!-- Custom Theme JavaScript -->
@@ -238,9 +243,15 @@
     <!--Style Switcher -->
     <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
     <script>
-      $(document).ready(function(){
-        swal('System Info','feature coming soon!','warning');
-      })
+    $(document).ready(function(){
+      var msg = '{{ msg }}';
+      if({{failed}} == false){
+        swal('System Info',msg,'success');
+      }
+      if({{failed}} == true){
+        swal('System Info',msg,'error');
+      }
+    })
     </script>
 </body>
 

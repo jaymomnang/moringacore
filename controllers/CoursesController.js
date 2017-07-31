@@ -8,7 +8,6 @@ exports.list_all_courses = function(req, res) {
   request(auth_url, function (error, response, body) {
     var data = JSON.parse(body);
     token.data = data;
-    console.log(data);
     if (arr.role != 'Admin'){
       buttons.add_course = 'display: none;';
     }
