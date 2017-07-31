@@ -4,7 +4,7 @@ module.exports = function(app) {
   var user = require('../controllers/userController');
   var login = require('../controllers/LoginController');
   var course = require('../controllers/CoursesController');
-  var grade = require('../controllers/GradesController');
+  var submission = require('../controllers/SubmissionController');
   var perf = require('../controllers/PerformanceController');
   var reports = require('../controllers/ReportsController');
   var attendance = require('../controllers/AttendanceController');
@@ -96,14 +96,14 @@ module.exports = function(app) {
     .delete(course.delete_course);
 
   // Submissions Routes
-  app.route('/grades')
-    .get(grade.list_all_grades)
-    .post(grade.create_grade);
+  app.route('/submission')
+    .get(submission.list_all_submissions)
+    .post(submission.subtmit_task);
 
-  app.route('/grade/:grade')
-    .get(grade.get_grade)
-    .put(grade.update_grade)
-    .delete(grade.delete_grade);
+  app.route('/submission/:subId')
+    .get(submission.get_submitted_task)
+    .put(submission.update_submission)
+    .delete(submission.delete_submission);
 
   // Attendance Routes
   app.route('/attendance')
