@@ -104,7 +104,7 @@
                   <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                       <h4 class="page-title">Courses </h4> </div>
                   <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                      <a href="#" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light" data-toggle="modal" data-target="#taskModal" style="{{ buttons.add_course }}">Add Course</a>
+                      <!--<a href="#" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light" data-toggle="modal" data-target="#taskModal" style="{{ buttons.add_course }}">Add Course</a>-->
                       <ol class="breadcrumb">
                           <li><a href="#">Dashboard</a></li>
                           <li class="active">Courses</li>
@@ -115,7 +115,7 @@
               <!-- .row -->
                 <div class="row">
                     <!-- .col -->
-                    {% for course in token.data %}
+                    {% for course in token.data %}<!--
                     <div class="col-md-4 col-sm-4">
                         <div class="white-box">
                             <div class="row">
@@ -131,13 +131,13 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     {% endfor %}
                     <!-- /.col -->
                 </div>
                 <!-- /.row -->
 
-                <!-- modal-->
+                <!-- modal--><!--
                 <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel1">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -164,7 +164,7 @@
 
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <!-- /.modal-->
 
 
@@ -239,13 +239,7 @@
     <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
     <script>
       $(document).ready(function(){
-        var msg = '{{ msg }}';
-        if({{failed}} == false){
-          swal('System Info',msg,'success');
-        }
-        if({{failed}} == true){
-          swal('System Info',msg,'error');
-        }
+        swal('System Info','feature coming soon....','success');
       })
     </script>
 </body>

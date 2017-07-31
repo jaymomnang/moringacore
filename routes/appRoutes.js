@@ -96,11 +96,11 @@ module.exports = function(app) {
     .delete(course.delete_course);
 
   // Submissions Routes
-  app.route('/submission')
+  app.route('/submissions')
     .get(submission.list_all_submissions)
     .post(submission.subtmit_task);
 
-  app.route('/submission/:subId')
+  app.route('/submissions/:subId')
     .get(submission.get_submitted_task)
     .put(submission.update_submission)
     .delete(submission.delete_submission);
