@@ -80,14 +80,16 @@
                         </ul>
                     </li>
                     <li class="nav-small-cap m-t-10">--- Quick Menu</li>
-                    <li><a href="tasks" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">{{ menus.tasks_label }}</span></a></li>
+                    <li><a href="tasks" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">{{ menus.tasks_label }}</span></a></li>
                     <li><a href="courses" class="waves-effect"><i data-icon="&#xe00a;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{ menus.courses_label }}</span></a></li>
                     <li><a href="home" class="waves-effect"><i data-icon="C" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{menus.performance_label}}</span></a></li>
                     <li><a href="submissions" class="waves-effect"><i data-icon="?" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{menus.submissions_label}}</span></a></li>
-                    <li class="nav-small-cap">--- Administration</li>
-                    <li><a href="manage_usr" class="waves-effect"><i class="fa fa-users fa-fw"></i> <span class="hide-menu"> {{menus.manage_usr_label}}</span></a></li>
                     <li><a href="attendance" class="waves-effect"><i class="fa fa-calendar fa-fw"></i> <span class="hide-menu"> {{menus.attendance_label}}</span></a></li>
-                    <li><a href="reports" class="waves-effect"><i class="fa fa-bar-chart-o fa-fw"></i> <span class="hide-menu"> {{menus.reports_label}}</span></a></li>
+                    <li class="nav-small-cap">--- Administration</li>
+                    {% if arr.role == 'Admin' %}
+                        <li><a href="manage_usr" class="waves-effect"><i class="fa fa-users fa-fw"></i> <span class="hide-menu"> {{menus.manage_usr_label}}</span></a></li>
+                        <li><a href="reports" class="waves-effect active"><i class="fa fa-bar-chart-o fa-fw"></i> <span class="hide-menu"> {{menus.reports_label}}</span></a></li>
+                    {% endif %}
                     <li><a href="/" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu"> Log Out</span></a></li>
                 </ul>
             </div>
@@ -99,7 +101,7 @@
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
                         <h4 class="page-title">Reporting</h4> </div>
-                        <!--<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <a href="#" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Generate Report</a>-->
+                        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"> <!--<a href="#" class="btn btn-danger pull-right m-l-20 btn-rounded btn-outline hidden-xs hidden-sm waves-effect waves-light">Generate Report</a>-->
                         <ol class="breadcrumb">
                             <li><a href="#">Dasboard</a></li>
                             <li class="active">Report</li>
@@ -110,26 +112,25 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box printableArea">
-                            <h3><b>INVOICE</b> <span class="pull-right">#5669626</span></h3>
+                            <h3><b>INVOICE</b> <span class="pull-right">#885001</span></h3>
                             <hr>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="pull-left"> <address>
-                                            <h3> &nbsp;<b class="text-danger">Elite Admin</b></h3>
-                                            <p class="text-muted m-l-5">E 104, Dharti-2,
-                                                <br/> Nr' Viswakarma Temple,
-                                                <br/> Talaja Road,
-                                                <br/> Bhavnagar - 364002</p>
+                                            <h3> &nbsp;<b class="text-danger">Moringa School</b></h3>
+                                            <p class="text-muted m-l-5">Ngong Lane,
+                                                <br/> Nairobi,
+                                                <br/> Kenya</p>
                                         </address> </div>
                                     <div class="pull-right text-right"> <address>
                                             <h3>To,</h3>
-                                            <h4 class="font-bold">Gaala & Sons,</h4>
-                                            <p class="text-muted m-l-30">E 104, Dharti-2,
-                                                <br/> Nr' Viswakarma Temple,
-                                                <br/> Talaja Road,
-                                                <br/> Bhavnagar - 364002</p>
-                                            <p class="m-t-30"><b>Invoice Date :</b> <i class="fa fa-calendar"></i> 23rd Jan 2017</p>
-                                            <p><b>Due Date :</b> <i class="fa fa-calendar"></i> 25th Jan 2017</p>
+                                            <h4 class="font-bold">Julius Momnang</h4>
+                                            <p class="text-muted m-l-30">132 Road 24,
+                                                <br/> Federal Housing Estate,
+                                                <br/> Agip, Port Harcourt,
+                                                <br/> Nigeria - 500271</p>
+                                            <p class="m-t-30"><b>Transaction Date :</b> <i class="fa fa-calendar"></i> 3rd July 2017</p>
+                                            <p><b>Due Date :</b> <i class="fa fa-calendar"></i> 29th July 2017</p>
                                         </address> </div>
                                 </div>
                                 <div class="col-md-12">
@@ -147,31 +148,31 @@
                                             <tbody>
                                                 <tr>
                                                     <td class="text-center">1</td>
-                                                    <td>Milk Powder</td>
-                                                    <td class="text-right">2 </td>
-                                                    <td class="text-right"> $24 </td>
-                                                    <td class="text-right"> $48 </td>
+                                                    <td>Moringa Backend API</td>
+                                                    <td class="text-right"> 1 </td>
+                                                    <td class="text-right"> $5000 </td>
+                                                    <td class="text-right"> $5000 </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center">2</td>
-                                                    <td>Air Conditioner</td>
-                                                    <td class="text-right"> 3 </td>
-                                                    <td class="text-right"> $500 </td>
-                                                    <td class="text-right"> $1500 </td>
+                                                    <td>MongoDB Atlas Susbcription</td>
+                                                    <td class="text-right"> 1 </td>
+                                                    <td class="text-right"> $120 </td>
+                                                    <td class="text-right"> $120 </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center">3</td>
-                                                    <td>RC Cars</td>
-                                                    <td class="text-right"> 20 </td>
-                                                    <td class="text-right"> %600 </td>
-                                                    <td class="text-right"> $12000 </td>
+                                                    <td>Moringa Core Webservice</td>
+                                                    <td class="text-right"> 1 </td>
+                                                    <td class="text-right"> $1200 </td>
+                                                    <td class="text-right"> $1200 </td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-center">4</td>
-                                                    <td>Down Coat</td>
-                                                    <td class="text-right"> 60 </td>
-                                                    <td class="text-right">$5 </td>
-                                                    <td class="text-right"> $300 </td>
+                                                    <td>Service Charge</td>
+                                                    <td class="text-right"> 1 </td>
+                                                    <td class="text-right">$500 </td>
+                                                    <td class="text-right"> $500 </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -179,10 +180,10 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="pull-right m-t-30 text-right">
-                                        <p>Sub - Total amount: $13,848</p>
-                                        <p>vat (10%) : $138 </p>
+                                        <p>Sub - Total amount: $6,820</p>
+                                        <p>vat (5%) : $341 </p>
                                         <hr>
-                                        <h3><b>Total :</b> $13,986</h3> </div>
+                                        <h3><b>Total :</b> $7,161</h3> </div>
                                     <div class="clearfix"></div>
                                     <hr>
                                     <div class="text-right">

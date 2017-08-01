@@ -85,13 +85,15 @@
                   </li>
                   <li class="nav-small-cap m-t-10">--- Quick Menu</li>
                   <li><a href="tasks" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">{{ menus.tasks_label }}</span></a></li>
-                  <li><a href="courses" class="waves-effect active"><i data-icon="&#xe00a;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{ menus.courses_label }}</span></a></li>
+                  <li><a href="courses" class="waves-effect"><i data-icon="&#xe00a;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{ menus.courses_label }}</span></a></li>
                   <li><a href="home" class="waves-effect"><i data-icon="C" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{menus.performance_label}}</span></a></li>
-                  <li><a href="submissions" class="waves-effect"><i data-icon="?" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{menus.submissions_label}}</span></a></li>
-                  <li class="nav-small-cap">--- Administration</li>
-                  <li><a href="manage_usr" class="waves-effect"><i class="fa fa-users fa-fw"></i> <span class="hide-menu"> {{menus.manage_usr_label}}</span></a></li>
+                  <li><a href="submissions" class="waves-effect active"><i data-icon="?" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">{{menus.submissions_label}}</span></a></li>
                   <li><a href="attendance" class="waves-effect"><i class="fa fa-calendar fa-fw"></i> <span class="hide-menu"> {{menus.attendance_label}}</span></a></li>
-                  <li><a href="reports" class="waves-effect"><i class="fa fa-bar-chart-o fa-fw"></i> <span class="hide-menu"> {{menus.reports_label}}</span></a></li>
+                  <li class="nav-small-cap">--- Administration</li>
+                  {% if arr.role == 'Admin' %}
+                      <li><a href="manage_usr" class="waves-effect"><i class="fa fa-users fa-fw"></i> <span class="hide-menu"> {{menus.manage_usr_label}}</span></a></li>
+                      <li><a href="reports" class="waves-effect"><i class="fa fa-bar-chart-o fa-fw"></i> <span class="hide-menu"> {{menus.reports_label}}</span></a></li>
+                  {% endif %}
                   <li><a href="/" class="waves-effect"><i class="icon-logout"></i> <span class="hide-menu"> Log Out</span></a></li>
               </ul>
           </div>
