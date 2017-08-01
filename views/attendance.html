@@ -235,7 +235,9 @@
     <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
     <script>
       $(document).ready(function () {
-          $('#myTable').DataTable();
+          $('#myTable').DataTable({
+            "order": [[ 5, "desc" ]]
+          });
           $('#print_a').click(function(){
               swal('System Info','print function coming soon.....','success');
           });
