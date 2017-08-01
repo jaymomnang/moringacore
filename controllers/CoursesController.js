@@ -27,13 +27,20 @@ exports.create_course = function(req, res) {
     var failed = true;
     if (error == null){
         failed = false;
-        console.log(error);
         msg = 'successfully added course';
         token.data = data;
-        if (arr.role == 'Admin'){
+        if (arr.role != 'Admin'){
           buttons.add_task = 'display: none;';
-          res.render('courses', {menus, token, arr, buttons, failed, msg});
         }
+        res.render('courses', {menus, token, arr, buttons, failed, msg});
+    }else {
+      failed = true;
+      msg = 'error saving course';
+      token.data = data;
+      if (arr.role != 'Admin'){
+        buttons.add_task = 'display: none;';
+      }
+      res.render('courses', {menus, token, arr, buttons, failed, msg});
     }
   });
 };
