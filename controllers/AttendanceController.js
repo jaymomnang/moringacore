@@ -10,7 +10,7 @@ exports.list_all_attendance = function(req, res) {
     var attendance = JSON.parse(body);
 
     token.data = attendance;
-    res.render("attendance", {menus, token, arr, buttons, monthNames});
+    res.render("attendance", {menus, token, arr, monthNames});
     //console.log('error:', error); // Print the error if one occurred
     //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     //console.log('body:', body); // Print the HTML for the Google homepage.

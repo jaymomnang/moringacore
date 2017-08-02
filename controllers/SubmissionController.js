@@ -1,6 +1,6 @@
 'use strict';
 exports.list_all_submissions = function(req, res) {
-  res.render("submissions", {menus, token, arr, buttons, monthNames});
+  res.render("submissions", {menus, token, arr, monthNames});
 };
 
 exports.subtmit_task = function(req, res) {

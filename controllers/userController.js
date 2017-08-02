@@ -47,18 +47,12 @@ exports.add_new_user = function(req, res) {
             var data = JSON.parse(body);
             if (error) return error;
             token.data = data;
-            if (arr.role != 'Admin'){
-              buttons.add_task = 'display: none;';
-            }
-            res.render('users', {menus, token, arr, buttons, failed, msg});
+            res.render('users', {menus, token, arr, failed, msg});
           });
       }else{
         failed = true;
         msg = 'error creating user account';
-        if (arr.role != 'Admin'){
-          buttons.add_task = 'display: none;';
-        }
-        res.render('users', {menus, token, arr, buttons, failed, msg});
+        res.render('users', {menus, token, arr, failed, msg});
       }
     });
 

@@ -11,11 +11,8 @@ exports.list_all_tasks = function(req, res) {
     var data = JSON.parse(body);
     if (error) return error;
     token.data = data;
-    if (arr.role != 'Admin'){
-      buttons.add_task = 'display: none;';
-    }
 
-    ///get courses data
+    //get courses data
     var _url1 = mc_api + "course/";
     request(_url1, function (error, response, body) {
       var data1 = JSON.parse(body);
@@ -28,7 +25,7 @@ exports.list_all_tasks = function(req, res) {
         var data2 = JSON.parse(body);
         if (error) return error;
         token.users = data2;
-        res.render("tasks", {menus, token, arr, buttons});
+        res.render("tasks", {menus, token, arr});
       });
 
     });
@@ -46,7 +43,6 @@ exports.add_task = function(req, res) {
   for (i == 0; i < students.length; i++) {
 
     req.body.email = students[i];
-    console.log(i);
     request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
       var data1 = JSON.parse(body);
       var msg = 'Error creating task, Please contact your administrator';
@@ -63,10 +59,7 @@ exports.add_task = function(req, res) {
 
               var data = JSON.parse(body);
               token.data = data;
-              if (arr.role != 'Admin'){
-                buttons.add_task = 'display: none;';
-              }
-              res.render('tasks', {menus, token, arr, buttons, failed, msg});
+              res.render('tasks', {menus, token, arr, failed, msg});
             }
 
           });

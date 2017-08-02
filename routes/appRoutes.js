@@ -49,9 +49,6 @@ module.exports = function(app) {
     'body': '',
     'role': '',
   };
-  global.buttons = {
-    'add_task': ''
-  }
 
   // Login Routes
   app.route('/')
