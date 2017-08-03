@@ -40,7 +40,9 @@ exports.add_task = function(req, res) {
 
   var students = req.body.students;
   var i = 0;
-  for (i == 0; i < students.length; i++) {
+  var _max = students.length;
+  console.log(_max);
+  for (i == 0; i < _max; i++) {
 
     req.body.email = students[i];
     request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
