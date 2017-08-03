@@ -37,39 +37,18 @@ exports.list_all_tasks = function(req, res) {
 exports.add_task = function(req, res) {
   var url_partial = "tasks/";
   var auth_url = mc_api + url_partial;
-
-  var students = req.body.students;
-  var i = 0;
-  var _max = students.length;
-  console.log(_max);
-  for (i == 0; i < _max; i++) {
-
-    req.body.email = students[i];
-    request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
-      var data1 = JSON.parse(body);
+  request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
+      var data = JSON.parse(body);
       var msg = 'Error creating task, Please contact your administrator';
       var failed = true;
       if (!error){
           failed = false;
           msg = 'successfully created task';
-          console.log(error);
-          //load tasks
-          var auth_url = mc_api + "tasks/";
-          request(auth_url, function (error, response, body) {
-
-            if ((i+1) == students.length ){
-
-              var data = JSON.parse(body);
-              token.data = data;
-              res.render('tasks', {menus, token, arr, failed, msg});
-            }
-
-          });
+          token.data = data;
+          console.log(data);
+          res.render('tasks', {menus, token, arr, failed, msg});
       }
-
-    });
-  }
-
+  });
 };
 
 
