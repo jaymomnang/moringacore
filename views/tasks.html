@@ -155,7 +155,7 @@
                                 <form method="post">
                                     <div class="form-group">
                                         <label for="recipient-name" class="control-label">Course:</label>
-                                        <select class="form-control" id="status" name="courses.course" required>
+                                        <select class="form-control" id="course" name="course" required>
                                           {% for c in token.courses %}
                                             <option class="form-control" value="{{c.course}}/{{c.description}}/{{c.max_grade_point}}">{{c.course}} - {{c.description}}</option>
                                           {% endfor %}
