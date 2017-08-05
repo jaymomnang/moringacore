@@ -124,16 +124,18 @@
                         <div class="white-box">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h3 class="box-title m-b-0"> {{task.firstname}}-{{task.lastname}}</h3>
+                                    <h3> {{task.firstname}} {{task.lastname}}</h3>
                                     <h3 class="box-title m-b-0">Course: {{task.courses.course}}-{{task.courses.description}}</h3> <small>GradePoint: {{task.courses.gradepoint}}</small>
                                     <p> Instructions: {{task.description}} </p>
-                                    <h3>Due Date: {{task.duedate}}</h3>
+                                    <h3 class="box-title m-b-0">Due Date: {{task.DueDate.toString().substring(0, 10)}}</h3>
                                 </div>
                                 <form method="put">
                                   <input type="text" value="{{task.taskId}}" name="taskId" style="display: none" id="_taskId"/>
                                   <div class="modal-footer">
                                       <button type="button" class="btn btn-primary">Details</button>
-                                      <button type="submit" class="btn btn-default">Submit Task</button>
+                                      {% if arr.role == 'Student' %}
+                                        <button type="submit" class="btn btn-default">Submit Task</button>
+                                      {% endif %}
                                   </div>
                                 </form>
                             </div>
