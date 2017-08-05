@@ -68,7 +68,7 @@ exports.delete_course = function(req, res) {
     var failed = true;
     if (error == null){
         failed = false;
-        msg = 'course successfully didscontinued';
+        msg = 'course successfully discontinued';
         token.data = data;
         res.render('courses', {menus, token, arr, failed, msg});
     }else {
