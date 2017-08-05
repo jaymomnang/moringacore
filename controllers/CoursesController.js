@@ -54,9 +54,28 @@ exports.update_course = function(req, res) {
 };
 
 exports.delete_course = function(req, res) {
-   Course.findOneAndUpdate({course: req.params.course}, req.body, {new: true}, function(err, course) {
-    if (err)
-      res.send(err);
-      res.json({ message: 'Course successfully deactivated' });
+
+  var url_partial = "course/" + req.body.course;
+  var auth_url = mc_api + url_partial;
+
+  console.log(auth_url);
+
+  req.body.isActive = false;
+  request.delete({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
+    var data = JSON.parse(body);
+    var msg = 'Error discontinuing course, Please contact your administrator';
+
+    var failed = true;
+    if (error == null){
+        failed = false;
+        msg = 'course successfully didscontinued';
+        token.data = data;
+        res.render('courses', {menus, token, arr, failed, msg});
+    }else {
+      failed = true;
+      msg = 'error discontinuing course';
+      token.data = data;
+      res.render('courses', {menus, token, arr, failed, msg});
+    }
   });
 };

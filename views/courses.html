@@ -122,24 +122,27 @@
                 <div class="row">
                     <!-- .col -->
                     {% for course in token.data %}
-                    <div class="col-md-4 col-sm-4">
-                        <div class="white-box">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3 class="box-title m-b-0">Code: {{course.course}}</h3> <small>Grade Point: {{course.max_grade_point}}</small>
-                                    <p> {{course.description}} </p>
-                                </div>
-                                <form method="post">
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-primary">Details</button>
-                                      {% if arr.role == 'Admin' %}
-                                        <button type="submit" class="btn btn-default">Discontinue</button>
-                                      {% endif %}
+                      {% if course.isActive == true %}
+                      <div class="col-md-4 col-sm-4">
+                          <div class="white-box">
+                              <div class="row">
+                                  <div class="col-md-12">
+                                      <h3 class="box-title m-b-0">Code: {{course.course}}</h3> <small>Grade Point: {{course.max_grade_point}}</small>
+                                      <p> {{course.description}} </p>
                                   </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                                  <form method="delete">
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary">Details</button>
+                                        {% if arr.role == 'Admin' %}
+                                          <input type="text" name="course" value="{{course.course}}" style="display:none;"/>
+                                          <button type="submit" class="btn btn-default">Discontinue</button>
+                                        {% endif %}
+                                    </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                      {% endif %}
                     {% endfor %}
                     <!-- /.col -->
                 </div>
