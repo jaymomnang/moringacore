@@ -85,12 +85,12 @@ module.exports = function(app) {
   // Courses Routes
   app.route('/courses')
     .get(course.list_all_courses)
-    .post(course.create_course);
-
-  app.route('/courses/:course')
-    .get(course.get_course)
+    .post(course.create_course)
     .put(course.update_course)
     .delete(course.delete_course);
+
+  app.route('/courses/:course')
+    .get(course.get_course);
 
   // Submissions Routes
   app.route('/submissions')

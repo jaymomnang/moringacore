@@ -59,8 +59,8 @@ exports.delete_course = function(req, res) {
   var auth_url = mc_api + url_partial;
 
   console.log(auth_url);
-
   req.body.isActive = false;
+  console.log(req.body);
   request.delete({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
     var data = JSON.parse(body);
     var msg = 'Error discontinuing course, Please contact your administrator';
