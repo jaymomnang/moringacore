@@ -14,8 +14,22 @@ exports.list_all_courses = function(req, res) {
 };
 
 exports.create_course = function(req, res) {
+
+  if (req.body.route == "post"){
+    addnew(req, res);
+  }
+  if (req.body.route == "delete"){
+    delete_course(req, res);
+  }
+
+};
+
+function addnew(req, res){
+
   var url_partial = "course/";
   var auth_url = mc_api + url_partial;
+
+  console.log(req.body.show);
 
   req.body.isActive = true;
   request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
@@ -35,7 +49,7 @@ exports.create_course = function(req, res) {
       res.render('courses', {menus, token, arr, failed, msg});
     }
   });
-};
+}
 
 exports.get_course = function(req, res) {
   Course.findById(req.params.course, function(err, course) {
@@ -53,7 +67,7 @@ exports.update_course = function(req, res) {
   });
 };
 
-exports.delete_course = function(req, res) {
+function delete_course(req, res) {
 
   var url_partial = "course/" + req.body.course;
   var auth_url = mc_api + url_partial;
