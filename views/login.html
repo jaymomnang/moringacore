@@ -107,9 +107,13 @@
     <script src="plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
     <script>
       $(document).ready(function(){
-        if({{loggedIn}} == false){
-          swal('login failed!','Invalid username and/or password','error');
-        }
+        var loggedIn = '{{loggedIn}}';
+        if(loggedIn != ''){
+          if( loggedIn == 'false'){
+            swal('login failed!','Invalid username and/or password','error');
+          }
+        };
+
       })
     </script>
 </body>
