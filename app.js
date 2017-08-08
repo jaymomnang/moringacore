@@ -10,6 +10,7 @@ global.request = require('request');
 global.mc_api = "http://localhost:3100/";
 global.urlpath = "http://localhost:3200/";
 
+
 //initialize bodyParser and errorHandler
 app.engine('html', engines.nunjucks);
 app.set('view engine', 'html');
@@ -22,5 +23,6 @@ app.use(bodyParser.json());
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 routes(app);
+
 app.listen(port);
 console.log('MoringaCore server listening on port ' + port);

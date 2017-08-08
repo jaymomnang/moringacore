@@ -33,7 +33,7 @@ module.exports = function(app) {
   };
 
   global.token = {
-    'year': y,
+    'year': (new Date()).getFullYear(),
     'month': m,
     'monthname': mn,
     'day': dd,
@@ -86,7 +86,7 @@ module.exports = function(app) {
   app.route('/courses')
     .get(course.list_all_courses)
     .post(course.create_course);
-    
+
   app.route('/courses/:course')
     .get(course.get_course);
 
