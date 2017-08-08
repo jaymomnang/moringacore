@@ -12,6 +12,8 @@ module.exports = function(app) {
   global.monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
                     "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
 
+
+
   global.d = new Date();
   global.y = d.getFullYear();
   global.dd = d.getDate();
@@ -34,7 +36,7 @@ module.exports = function(app) {
 
   global.token = {
     'year': (new Date()).getFullYear(),
-    'month': m,
+    'month': (new Date()).getMonth(),
     'monthname': mn,
     'day': dd,
     'time': _time,
