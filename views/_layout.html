@@ -224,18 +224,14 @@
         <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
-    <script src="js/widget.js"></script>
     <script>
       $(document).ready(function(){
-        var msg = '{{ msg }}';
-        alert(msg);
-        if (msg <> ''){
-          if({{failed}} == false){
+        var failed = '{{failed}}';
+        if(failed == 'false'){
             swal('System Info',msg,'success');
-          }
-          if({{failed}} == true){
-            swal('System Info',msg,'error');
-          }
+        }
+        if(failed == 'true'){
+          swal('System Info',msg,'error');
         }
       })
     </script>
