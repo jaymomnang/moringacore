@@ -12,18 +12,6 @@ module.exports = function(app) {
   global.monthNames = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
                     "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"];
 
-
-
-  global.d = new Date();
-  global.y = d.getFullYear();
-  global.dd = d.getDate();
-  global.hh = d.getHours();
-  global.mm = d.getMinutes();
-  global.ss = d.getSeconds();
-  global.m = d.getMonth();
-  global.mn = monthNames[d.getMonth()];
-  global._time = hh + ':' + mm + ':' + ss;
-
   global.menus = {
       'tasks_label': 'My Tasks',
       'courses_label':'My Courses',
@@ -33,25 +21,7 @@ module.exports = function(app) {
       'manage_usr_label': 'Manage User',
       'reports_label':'Reports'
   };
-
-  global.token = {
-    'year': (new Date()).getFullYear(),
-    'month': (new Date()).getMonth(),
-    'monthname': mn,
-    'day': dd,
-    'time': _time,
-    'hour': hh,
-  };
-
-  global.arr = {
-    'username': '',
-    'email': '',
-    'status': 'inactive',
-    'loggedIn': false,
-    'body': '',
-    'role': '',
-  };
-
+    
   // Login Routes
   app.route('/')
     .get(login.getCurrentUser)

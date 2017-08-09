@@ -17,17 +17,14 @@ exports.authenticate = function(req, res) {
     }
     if(info.length == 1){
       //prepare display data
-      arr = {
-        'username': info[0].firstname + " " + info[0].lastname,
-        'email': info[0].email,
-        'status': info[0].status,
-        'loggedIn': true,
-        'body': info[0],
-        'role': info[0].role,
-      };
+      createSession(req, info)
+      var arr = req.session;
+
       //prepare attendance data
-      var att_data = {email: arr.email, fullname: arr.username, year: token.year, month: token.month,
-                      day: token.day, time: token.time, att_id: token.nxt_att_Id, gradepoint: hh};
+      var att_data = {email: arr.email, fullname: arr.username, year: arr.token.year, month: arr.token.month,
+                      day: arr.token.day, time: arr.token.time, att_id: arr.token.nxt_att_Id, gradepoint: arr.token.hour};
+
+      console.log(arr);
 
       logAttendance(att_data);
       res.redirect(urlpath + "tasks");
@@ -36,11 +33,41 @@ exports.authenticate = function(req, res) {
 };
 
 //log the attendance register for student
-var logAttendance = function(data){
+var logAttendance = function(req, data){
   var auth_url = mc_api + "attendance/";
   request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:data }, function(error, response, body){
     var data = JSON.parse(body);
-    token.attendanceLogged = true;
-    token.attendance = data;
+    req.session.token.attendanceLogged = true;
+    req.session.token.attendance = data;
   });
 };
+
+var createSession = function(req, info){
+
+  req.session.email = info[0].email;
+  req.session.username = info[0].firstname + " " + info[0].lastname;
+  req.session.status = info[0].status;
+  req.session.loggedIn = true;
+  req.session.role = info[0].role;
+
+  var d = new Date();
+  var y = d.getFullYear();
+  var dd = d.getDate();
+  var hh = d.getHours();
+  var mm = d.getMinutes();
+  var ss = d.getSeconds();
+  var m = d.getMonth();
+  var mn = monthNames[d.getMonth()];
+  var _time = hh + ':' + mm + ':' + ss;
+
+  req.session.token = {
+    'year': y,
+    'month': m,
+    'monthname': mn,
+    'day': dd,
+    'time': _time,
+    'hour': hh,
+  };
+
+
+}
