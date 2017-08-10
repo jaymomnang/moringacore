@@ -20,7 +20,7 @@
 
 
 <div class="row">
-    {% for task in token.data %}
+    {% for task in arr.tasks %}
     <!-- /.usercard -->
     <div class="col-md-4 col-sm-4">
         <div class="white-box">
@@ -60,7 +60,7 @@
                     <div class="form-group">
                         <label for="recipient-name" class="control-label">Course:</label>
                         <select class="form-control" id="course" name="course" required>
-                          {% for c in token.courses %}
+                          {% for c in arr.courses %}
                             <option class="form-control" value="{{c.course}}/{{c.description}}/{{c.max_grade_point}}">{{c.course}} - {{c.description}}</option>
                           {% endfor %}
                         </select> </div>
@@ -74,7 +74,7 @@
                     <div class="form-group">
                         <h5 class="box-title">Assign Task to Students (hold down the CTRL-key to select multiple)</h5>
                         <select name="students" multiple='multiple' class="col-sm-12" required>
-                          {% for u in token.users %}
+                          {% for u in arr.users %}
                             {% if u.role != 'Admin' %}
                                 <option value='{{u.email}}/{{u.firstname}}/{{u.lastname}}'>{{u.firstname}} {{u.lastname}}</option>
                             {% endif %}

@@ -2,35 +2,34 @@
 
 //load page defaults
 exports.list_all_tasks = function(req, res) {
-  if (req.session.loggedIn == false){
+
+  if (req.session.email == null){
     res.render("login");
   }
 
-
-
   var auth_url = mc_api + "tasks/";
   request(auth_url, function (error, response, body) {
-    var data = JSON.parse(body);
+
     if (error) return error;
-    req.session.token.data = data;
+    var data = JSON.parse(body);
+    req.session.tasks = data;
 
     //get courses data
     var _url1 = mc_api + "course/";
     request(_url1, function (error, response, body) {
       var data1 = JSON.parse(body);
       if (error) return error;
-      req.session.token.courses = data1;
+      req.session.courses = data1;
 
       ///get student data
       var _url2 = mc_api + "login/";
       request(_url2, function (error, response, body) {
         var data2 = JSON.parse(body);
         if (error) return error;
-        req.session.token.users = data2;
+        req.session.users = data2;
 
         var token = req.session.token;
         var arr = req.session;
-
         res.render("tasks", {menus, token, arr});
       });
 
@@ -51,7 +50,6 @@ exports.add_task = function(req, res) {
           failed = false;
           msg = 'successfully created task';
           token.data = data;
-          console.log(data);
           res.render('tasks', {menus, token, arr, failed, msg});
       }
   });

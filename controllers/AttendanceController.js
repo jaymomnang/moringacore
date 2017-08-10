@@ -1,16 +1,17 @@
 'use strict';
 exports.list_all_attendance = function(req, res) {
 
+
   var auth_url = mc_api + "attendance/";
-  if (arr.role == "Student"){
-    auth_url = auth_url + arr.email;
+  if (req.session.role == "Student"){
+    auth_url = auth_url + req.session.email;
   }
 
   request(auth_url, function (error, response, body) {
     var attendance = JSON.parse(body);
 
-    token.data = attendance;
-    res.render("attendance", {menus, token, arr, monthNames});
+    var arr = req.session;
+    res.render("attendance", {menus, attendance, arr, monthNames});
     //console.log('error:', error); // Print the error if one occurred
     //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     //console.log('body:', body); // Print the HTML for the Google homepage.

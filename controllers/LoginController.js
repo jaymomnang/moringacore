@@ -19,14 +19,11 @@ exports.authenticate = function(req, res) {
       //prepare display data
       createSession(req, info)
       var arr = req.session;
-
       //prepare attendance data
       var att_data = {email: arr.email, fullname: arr.username, year: arr.token.year, month: arr.token.month,
                       day: arr.token.day, time: arr.token.time, att_id: arr.token.nxt_att_Id, gradepoint: arr.token.hour};
 
-      console.log(arr);
-
-      logAttendance(att_data);
+      logAttendance(req, att_data);
       res.redirect(urlpath + "tasks");
     }
   });
@@ -34,7 +31,7 @@ exports.authenticate = function(req, res) {
 
 //log the attendance register for student
 var logAttendance = function(req, data){
-  var auth_url = mc_api + "attendance/";
+  var auth_url = mc_api + "attendance/";  
   request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:data }, function(error, response, body){
     var data = JSON.parse(body);
     req.session.token.attendanceLogged = true;
@@ -68,6 +65,4 @@ var createSession = function(req, info){
     'time': _time,
     'hour': hh,
   };
-
-
 }

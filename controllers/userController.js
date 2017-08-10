@@ -14,22 +14,27 @@ exports.get_users = function(req, res) {
   //get users data
   var _url2 = mc_api + "login/";
   request(_url2, function (error, response, body) {
-    var data2 = JSON.parse(body);
+    var users = JSON.parse(body);
     if (error) return error;
-    token.data = data2;
-    res.render("users", {menus, token, arr});
+    var arr = req.session;
+    req.session.users = users;
+    res.render("users", {menus, users, arr});
   });
 };
 
 exports.add_new_user = function(req, res) {
 
   var new_user = req.body;
+  var users;
+  var arr;
   if (new_user.pwd != new_user.pwd2){
 
     console.log(new_user.pwd2);
     var msg = "The password do not match. Please enter the password again";
     var failed = true;
-    res.render("users", {menus, token, arr, failed, msg});
+    arr = req.session;
+    users = req.session.users;
+    res.render("users", {menus, users, arr, failed, msg});
 
   }else{
 
@@ -44,15 +49,18 @@ exports.add_new_user = function(req, res) {
           msg = 'successfully added user account';
 
           request(_url2, function (error, response, body) {
-            var data = JSON.parse(body);
+            users = JSON.parse(body);
             if (error) return error;
-            token.data = data;
-            res.render('users', {menus, token, arr, failed, msg});
+            req.session.users = users;
+            arr = req.session;
+            res.render('users', {menus, users, arr, failed, msg});
           });
       }else{
         failed = true;
         msg = 'error creating user account';
-        res.render('users', {menus, token, arr, failed, msg});
+        users = req.session.users;
+        arr = req.session;
+        res.render('users', {menus, users, arr, failed, msg});
       }
     });
 
