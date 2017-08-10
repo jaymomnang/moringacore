@@ -21,7 +21,7 @@ module.exports = function(app) {
       'manage_usr_label': 'Manage User',
       'reports_label':'Reports'
   };
-    
+
   // Login Routes
   app.route('/')
     .get(login.getCurrentUser)
@@ -50,7 +50,6 @@ module.exports = function(app) {
     .post(user.add_new_user);
 
   app.route('/manage_usr/:email')
-    .get(user.authenticate)
     .put(user.update_user_prof)
     .delete(user.delete_user);
 

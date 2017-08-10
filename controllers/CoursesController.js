@@ -14,6 +14,9 @@ exports.list_all_courses = function(req, res) {
 };
 
 exports.create_course = function(req, res) {
+  if (req.session.email == null){
+    res.redirect(urlpath);
+  }
 
   if (req.body.route == "post"){
     addnew(req, res);
@@ -52,19 +55,17 @@ function addnew(req, res){
 }
 
 exports.get_course = function(req, res) {
-  Course.findById(req.params.course, function(err, course) {
-    if (err)
-      res.send(err);
-      res.json(course);
-  });
+  if (req.session.email == null){
+    res.redirect(urlpath);
+  }
+
 };
 
 exports.update_course = function(req, res) {
-  Course.findOneAndUpdate({course: req.params.course}, req.body, {new: true}, function(err, course) {
-    if (err)
-      res.send(err);
-      res.json(course);
-  });
+  if (req.session.email == null){
+    res.redirect(urlpath);
+  }
+
 };
 
 function delete_course(req, res) {

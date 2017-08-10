@@ -4,7 +4,7 @@
 exports.list_all_tasks = function(req, res) {
 
   if (req.session.email == null){
-    res.render("login");
+    res.redirect(urlpath);
   }
 
   var auth_url = mc_api + "tasks/";
@@ -40,6 +40,11 @@ exports.list_all_tasks = function(req, res) {
 
 //post page data
 exports.add_task = function(req, res) {
+
+  if (req.session.email == null){
+    res.redirect(urlpath);
+  }
+
   var url_partial = "tasks/";
   var auth_url = mc_api + url_partial;
   request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
@@ -57,9 +62,10 @@ exports.add_task = function(req, res) {
 
 
 exports.get_task = function(req, res) {
-  if (arr.loggedIn == false){
-    res.redirect("/");
+  if (req.session.email == null){
+    res.redirect(urlpath);
   }
+
   var url_partial = "tasks/" + req.params.taskId;
   var auth_url = mc_api + url_partial;
 
@@ -73,6 +79,11 @@ exports.get_task = function(req, res) {
 };
 
 exports.update_task = function(req, res) {
+
+  if (req.session.email == null){
+    res.redirect(urlpath);
+  }
+
   var url_partial = "tasks/" + req.params.taskId;
   var auth_url = mc_api + url_partial;
   req.body.isActive = false;
@@ -85,4 +96,8 @@ exports.update_task = function(req, res) {
 
 exports.delete_task = function(req, res) {
   //TODO: write a process for deleting a task
+  if (req.session.email == null){
+    res.redirect(urlpath);
+  }
+
 };

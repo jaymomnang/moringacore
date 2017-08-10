@@ -5,6 +5,7 @@ exports.getCurrentUser = function(req, res) {
     //}else{
     //  res.render("login");
     //}
+    req.session.destroy();
     res.render("login");
 };
 
@@ -31,7 +32,7 @@ exports.authenticate = function(req, res) {
 
 //log the attendance register for student
 var logAttendance = function(req, data){
-  var auth_url = mc_api + "attendance/";  
+  var auth_url = mc_api + "attendance/";
   request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:data }, function(error, response, body){
     var data = JSON.parse(body);
     req.session.token.attendanceLogged = true;

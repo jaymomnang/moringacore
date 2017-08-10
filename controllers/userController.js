@@ -1,16 +1,9 @@
 'use strict';
-//var crypt = require('crypto');
-//const secret = '#M0r1ng4C0r3';
-
-//var getHash = function(pwd){
-//  const hash = crypt.createHmac('sha256', secret)
-//                     .update(pwd)
-//                     .digest('hex');
-//  return hash;
-//}
-
 
 exports.get_users = function(req, res) {
+  if (req.session.email == null){
+    res.redirect(urlpath);
+  }
   //get users data
   var _url2 = mc_api + "login/";
   request(_url2, function (error, response, body) {
@@ -24,12 +17,14 @@ exports.get_users = function(req, res) {
 
 exports.add_new_user = function(req, res) {
 
+  if (req.session.email == null){
+    res.redirect(urlpath);
+  }
+
   var new_user = req.body;
   var users;
   var arr;
   if (new_user.pwd != new_user.pwd2){
-
-    console.log(new_user.pwd2);
     var msg = "The password do not match. Please enter the password again";
     var failed = true;
     arr = req.session;
@@ -68,27 +63,16 @@ exports.add_new_user = function(req, res) {
 
 };
 
-exports.authenticate = function(req, res) {
-  var password = getHash(req.params.pwd);
-  user.find({email: req.params.email, pwd: password}, function(err, user) {
-    if (err)
-      res.send(err);
-    res.json(user);
-  });
-};
-
 exports.update_user_prof = function(req, res) {
-  user.findOneAndUpdate({email: req.params.email}, req.body, {new: true}, function(err, user) {
-    if (err)
-      res.send(err);
-    res.json(user);
-  });
+  //TODO: Handle user profile update here
+  if (req.session.email == null){
+    res.redirect(urlpath);
+  }
 };
 
 exports.delete_user = function(req, res) {
-  user.findOneAndUpdate({email: req.params.email}, req.body, {new: true}, function(err, user) {
-    if (err)
-      res.send(err);
-      res.json({message: 'User deactivated successfully'});
-  });
+  //TODO: Handle user profile deletion
+  if (req.session.email == null){
+    res.redirect(urlpath);
+  }
 };
