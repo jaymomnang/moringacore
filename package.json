@@ -12,6 +12,7 @@
     "connect": "^3.6.2",
     "consolidate": "^0.13.1",
     "express": "^4.13.4",
+    "express-session": "^1.15.5",
     "mongodb": "^2.1.21",
     "mongoose": "^4.11.5",
     "nodemon": "^1.11.0",
