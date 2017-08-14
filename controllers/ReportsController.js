@@ -2,8 +2,9 @@
 
 exports.print_attendance = function(req, res) {
   if (req.session.email == null){
-    res.redirect(urlpath);
-  }
-  var arr = req.session;
-  res.render("reports", {menus, arr, monthNames});
+    res.render("login");
+  }else{
+    var arr = req.session;
+    res.render("reports", {menus, arr, monthNames});
+  }  
 };

@@ -1,4 +1,5 @@
 'use strict';
+
 exports.getCurrentUser = function(req, res) {
     //if (arr.loggedIn != false){
     //  res.redirect(urlpath + "tasks");
@@ -25,7 +26,7 @@ exports.authenticate = function(req, res) {
                       day: arr.token.day, time: arr.token.time, att_id: arr.token.nxt_att_Id, gradepoint: arr.token.hour};
 
       logAttendance(req, att_data);
-      res.redirect(urlpath + "tasks");
+      res.redirect(urlpath + "tasks");    
     }
   });
 };

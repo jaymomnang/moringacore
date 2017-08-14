@@ -2,29 +2,28 @@
 exports.list_all_courses = function(req, res) {
   if (req.session.loggedIn == false){
     res.render("login");
+  }else{
+    var auth_url = mc_api + "course/";
+    request(auth_url, function (error, response, body) {
+      var courses = JSON.parse(body);
+      var arr = req.session;
+      res.render("courses", {menus, courses, arr});
+
+      });
   }
-
-  var auth_url = mc_api + "course/";
-  request(auth_url, function (error, response, body) {
-    var courses = JSON.parse(body);
-    var arr = req.session;
-    res.render("courses", {menus, courses, arr});
-
-    });
 };
 
 exports.create_course = function(req, res) {
   if (req.session.email == null){
-    res.redirect(urlpath);
+    res.render("login");
+  }else{
+    if (req.body.route == "post"){
+      addnew(req, res);
+    }
+    if (req.body.route == "delete"){
+      delete_course(req, res);
+    }
   }
-
-  if (req.body.route == "post"){
-    addnew(req, res);
-  }
-  if (req.body.route == "delete"){
-    delete_course(req, res);
-  }
-
 };
 
 function addnew(req, res){
@@ -56,14 +55,14 @@ function addnew(req, res){
 
 exports.get_course = function(req, res) {
   if (req.session.email == null){
-    res.redirect(urlpath);
+    res.render("login");
   }
 
 };
 
 exports.update_course = function(req, res) {
   if (req.session.email == null){
-    res.redirect(urlpath);
+    res.render("login");
   }
 
 };
