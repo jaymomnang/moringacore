@@ -1,7 +1,7 @@
 'use strict';
 
 exports.get_users = function(req, res) {
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }else{
     //get users data
@@ -18,7 +18,7 @@ exports.get_users = function(req, res) {
 
 exports.add_new_user = function(req, res) {
 
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }else{
     var new_user = req.body;
@@ -65,14 +65,14 @@ exports.add_new_user = function(req, res) {
 
 exports.update_user_prof = function(req, res) {
   //TODO: Handle user profile update here
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }
 };
 
 exports.delete_user = function(req, res) {
   //TODO: Handle user profile deletion
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }
 };

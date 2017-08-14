@@ -1,6 +1,6 @@
 'use strict';
 exports.list_all_courses = function(req, res) {
-  if (req.session.loggedIn == false){
+  if (req.session.email == undefined){
     res.render("login");
   }else{
     var auth_url = mc_api + "course/";
@@ -14,7 +14,7 @@ exports.list_all_courses = function(req, res) {
 };
 
 exports.create_course = function(req, res) {
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }else{
     if (req.body.route == "post"){
@@ -54,14 +54,14 @@ function addnew(req, res){
 }
 
 exports.get_course = function(req, res) {
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }
 
 };
 
 exports.update_course = function(req, res) {
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }
 

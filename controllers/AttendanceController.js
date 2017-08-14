@@ -1,7 +1,7 @@
 'use strict';
 exports.list_all_attendance = function(req, res) {
 
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }else{
     var auth_url = mc_api + "attendance/";
@@ -22,26 +22,26 @@ exports.list_all_attendance = function(req, res) {
 };
 
 exports.add_attendance = function(req, res) {
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }
 };
 
 exports.get_attendance = function(req, res) {
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }
 };
 
 exports.update_attendance = function(req, res) {
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }
 
 };
 
 exports.delete_attendance = function(req, res) {
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }
 

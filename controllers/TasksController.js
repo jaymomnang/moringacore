@@ -3,7 +3,8 @@
 //load page defaults
 exports.list_all_tasks = function(req, res) {
 
-  if (req.session.email == null){
+  console.log(req.session.email);
+  if (req.session.email == undefined){
     res.render("login");
   }
   else{
@@ -46,19 +47,20 @@ exports.list_all_tasks = function(req, res) {
 //post page data
 exports.add_task = function(req, res) {
 
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }else{
     var url_partial = "tasks/";
     var auth_url = mc_api + url_partial;
     request.post({headers: {'content-type': 'application/x-www-form-urlencoded'}, url: auth_url, form:req.body }, function(error, response, body){
-        var data = JSON.parse(body);
+        req.session.tasks = JSON.parse(body);
         var msg = 'Error creating task, Please contact your administrator';
         var failed = true;
         if (!error){
             failed = false;
             msg = 'successfully created task';
-            token.data = data;
+            var token = req.session.tasks;
+            var arr = req.session;
             res.render('tasks', {menus, token, arr, failed, msg});
         }
     });
@@ -68,7 +70,7 @@ exports.add_task = function(req, res) {
 
 exports.get_task = function(req, res) {
 
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }else{
     var url_partial = "tasks/" + req.params.taskId;
@@ -78,7 +80,7 @@ exports.get_task = function(req, res) {
       var data = JSON.parse(body);
       //prepare display data
       //TODO: load the data needed here.
-      res.render(url_partial, arr);
+      res.render(url_partial, {arr, menus, data});
     });
   }
 
@@ -86,7 +88,7 @@ exports.get_task = function(req, res) {
 
 exports.update_task = function(req, res) {
 
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }else{
     var url_partial = "tasks/" + req.params.taskId;
@@ -102,10 +104,10 @@ exports.update_task = function(req, res) {
 
 exports.delete_task = function(req, res) {
   //TODO: write a process for deleting a task
-  if (req.session.email == null){
+  if (req.session.email == undefined){
     res.render("login");
   }else{
-    
+
   }
 
 };
